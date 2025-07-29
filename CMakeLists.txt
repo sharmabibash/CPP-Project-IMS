@@ -15,16 +15,22 @@ find_package(Qt6 REQUIRED COMPONENTS Widgets)
 set(SOURCES
     main.cpp
     views/dashboardwindow/dashboardwindow.cpp
+    views/loginwindow/loginwindow.cpp
+    views/registrationwindow/registrationwindow.cpp
 )
 
 # Header files
 set(HEADERS
     views/dashboardwindow/dashboardwindow.h
+    views/loginwindow/loginwindow.h
+    views/registrationwindow/registrationwindow.h
 )
 
 # UI files
 set(UIS
     views/dashboardwindow/dashboardwindow.ui
+    views/loginwindow/loginwindow.ui
+    views/registrationwindow/registrationwindow.ui
 )
 
 # Add the executable

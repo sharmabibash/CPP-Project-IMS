@@ -43,13 +43,13 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 31,
+				"line" : 37,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 38,
+				"line" : 44,
 				"parent" : 0
 			},
 			{
@@ -268,7 +268,9 @@
 			[
 				0,
 				1,
-				2
+				2,
+				3,
+				4
 			]
 		}
 	],
@@ -358,30 +360,38 @@
 			[
 				0,
 				1,
-				2
+				2,
+				3,
+				4
 			]
 		},
 		{
 			"name" : "Header Files",
 			"sourceIndexes" : 
 			[
-				3,
-				5
+				5,
+				6,
+				7,
+				11,
+				12,
+				13
 			]
 		},
 		{
 			"name" : "",
 			"sourceIndexes" : 
 			[
-				4,
-				6
+				8,
+				9,
+				10,
+				14
 			]
 		},
 		{
 			"name" : "CMake Rules",
 			"sourceIndexes" : 
 			[
-				7
+				15
 			]
 		}
 	],
@@ -408,7 +418,29 @@
 		},
 		{
 			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "views/loginwindow/loginwindow.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "views/registrationwindow/registrationwindow.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
 			"path" : "views/dashboardwindow/dashboardwindow.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "views/loginwindow/loginwindow.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "views/registrationwindow/registrationwindow.h",
 			"sourceGroupIndex" : 1
 		},
 		{
@@ -417,9 +449,31 @@
 			"sourceGroupIndex" : 2
 		},
 		{
+			"backtrace" : 1,
+			"path" : "views/loginwindow/loginwindow.ui",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 1,
+			"path" : "views/registrationwindow/registrationwindow.ui",
+			"sourceGroupIndex" : 2
+		},
+		{
 			"backtrace" : 0,
 			"isGenerated" : true,
 			"path" : "build/IMS_autogen/include/views/dashboardwindow/ui_dashboardwindow.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/IMS_autogen/include/views/loginwindow/ui_loginwindow.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/IMS_autogen/include/views/registrationwindow/ui_registrationwindow.h",
 			"sourceGroupIndex" : 1
 		},
 		{

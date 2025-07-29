@@ -314,6 +314,18 @@
 			"MU",
 			"7LQT4RTPBL/moc_dashboardwindow.cpp",
 			null
+		],
+		[
+			"C:/Users/Bibash Sharma/Desktop/Cpp/IMS/views/loginwindow/loginwindow.h",
+			"MU",
+			"AM5AZUI2IB/moc_loginwindow.cpp",
+			null
+		],
+		[
+			"C:/Users/Bibash Sharma/Desktop/Cpp/IMS/views/registrationwindow/registrationwindow.h",
+			"MU",
+			"LJPQ56BGLA/moc_registrationwindow.cpp",
+			null
 		]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
@@ -389,6 +401,16 @@
 		[ "C:/Users/Bibash Sharma/Desktop/Cpp/IMS/main.cpp", "MU", null ],
 		[
 			"C:/Users/Bibash Sharma/Desktop/Cpp/IMS/views/dashboardwindow/dashboardwindow.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/Bibash Sharma/Desktop/Cpp/IMS/views/loginwindow/loginwindow.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/Bibash Sharma/Desktop/Cpp/IMS/views/registrationwindow/registrationwindow.cpp",
 			"MU",
 			null
 		]

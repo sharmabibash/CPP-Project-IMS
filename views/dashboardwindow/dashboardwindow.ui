@@ -35,9 +35,10 @@
             background-color: #3498db;
             border: none;
             padding: 10px;
-            margin: 5px;
+            margin: 5px 10px;
             border-radius: 5px;
             font-size: 16px;
+            text-align: left;
         }
         QPushButton:hover {
             background-color: #2980b9;
@@ -50,12 +51,16 @@
          <property name="text">
           <string>IMS Dashboard</string>
          </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
          <property name="styleSheet">
           <string notr="true">
            color: white;
-           font-size: 20px;
+           font-size: 22px;
            font-weight: bold;
            padding: 20px;
+           border-bottom: 1px solid #34495e;
           </string>
          </property>
         </widget>
@@ -63,21 +68,21 @@
        <item>
         <widget class="QPushButton" name="inventoryButton">
          <property name="text">
-          <string>Inventory</string>
+          <string>📦 Inventory</string>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QPushButton" name="reportsButton">
          <property name="text">
-          <string>Reports</string>
+          <string>📊 Reports</string>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QPushButton" name="settingsButton">
          <property name="text">
-          <string>Settings</string>
+          <string>⚙️ Settings</string>
          </property>
         </widget>
        </item>
@@ -89,10 +94,32 @@
          <property name="sizeHint" stdset="0">
           <size>
            <width>20</width>
-           <height>40</height>
+           <height>100</height>
           </size>
          </property>
         </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="loginButton">
+         <property name="text">
+          <string>🔐 Logout</string>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">
+           QPushButton {
+               background-color: #1abc9c;
+               color: white;
+               font-size: 16px;
+               padding: 10px;
+               border-radius: 5px;
+               margin: 10px;
+           }
+           QPushButton:hover {
+               background-color: #16a085;
+           }
+          </string>
+         </property>
+        </widget>
        </item>
       </layout>
      </widget>
@@ -241,16 +268,7 @@
     </item>
    </layout>
   </widget>
-  <widget class="QMenuBar" name="menuBar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>1000</width>
-     <height>21</height>
-    </rect>
-   </property>
-  </widget>
+  <widget class="QMenuBar" name="menuBar"/>
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <resources/>

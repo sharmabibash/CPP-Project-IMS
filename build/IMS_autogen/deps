@@ -551,6 +551,10 @@ IMS_autogen/timestamp: \
 	C:/Users/Bibash\ Sharma/Desktop/Cpp/IMS/main.cpp \
 	C:/Users/Bibash\ Sharma/Desktop/Cpp/IMS/views/dashboardwindow/dashboardwindow.cpp \
 	C:/Users/Bibash\ Sharma/Desktop/Cpp/IMS/views/dashboardwindow/dashboardwindow.h \
+	C:/Users/Bibash\ Sharma/Desktop/Cpp/IMS/views/loginwindow/loginwindow.cpp \
+	C:/Users/Bibash\ Sharma/Desktop/Cpp/IMS/views/loginwindow/loginwindow.h \
+	C:/Users/Bibash\ Sharma/Desktop/Cpp/IMS/views/registrationwindow/registrationwindow.cpp \
+	C:/Users/Bibash\ Sharma/Desktop/Cpp/IMS/views/registrationwindow/registrationwindow.h \
 	C:/mingw64/share/cmake-4.0/Modules/CMakeCInformation.cmake \
 	C:/mingw64/share/cmake-4.0/Modules/CMakeCXXInformation.cmake \
 	C:/mingw64/share/cmake-4.0/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake \
@@ -598,4 +602,6 @@ IMS_autogen/timestamp: \
 	C:/mingw64/share/cmake-4.0/Modules/Platform/Windows.cmake \
 	C:/mingw64/share/cmake-4.0/Modules/Platform/WindowsPaths.cmake \
 	C:/Users/Bibash\ Sharma/Desktop/Cpp/IMS/views/dashboardwindow/dashboardwindow.ui \
+	C:/Users/Bibash\ Sharma/Desktop/Cpp/IMS/views/loginwindow/loginwindow.ui \
+	C:/Users/Bibash\ Sharma/Desktop/Cpp/IMS/views/registrationwindow/registrationwindow.ui \
 	C:/mingw64/bin/cmake.exe

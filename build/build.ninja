@@ -76,6 +76,24 @@ build CMakeFiles/IMS.dir/views/dashboardwindow/dashboardwindow.cpp.obj: CXX_COMP
   OBJECT_DIR = CMakeFiles\IMS.dir
   OBJECT_FILE_DIR = CMakeFiles\IMS.dir\views\dashboardwindow
 
+build CMakeFiles/IMS.dir/views/loginwindow/loginwindow.cpp.obj: CXX_COMPILER__IMS_unscanned_Debug C$:/Users/Bibash$ Sharma/Desktop/Cpp/IMS/views/loginwindow/loginwindow.cpp || cmake_object_order_depends_target_IMS
+  CONFIG = Debug
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEP_FILE = CMakeFiles\IMS.dir\views\loginwindow\loginwindow.cpp.obj.d
+  FLAGS = -DQT_QML_DEBUG -DQT_DECLARATIVE_DEBUG -g -std=gnu++17
+  INCLUDES = -I"C:/Users/Bibash Sharma/Desktop/Cpp/IMS/build/IMS_autogen/include" -isystem C:/Qt/6.9.1/mingw_64/include/QtWidgets -isystem C:/Qt/6.9.1/mingw_64/include -isystem C:/Qt/6.9.1/mingw_64/include/QtCore -isystem C:/Qt/6.9.1/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.9.1/mingw_64/include/QtGui
+  OBJECT_DIR = CMakeFiles\IMS.dir
+  OBJECT_FILE_DIR = CMakeFiles\IMS.dir\views\loginwindow
+
+build CMakeFiles/IMS.dir/views/registrationwindow/registrationwindow.cpp.obj: CXX_COMPILER__IMS_unscanned_Debug C$:/Users/Bibash$ Sharma/Desktop/Cpp/IMS/views/registrationwindow/registrationwindow.cpp || cmake_object_order_depends_target_IMS
+  CONFIG = Debug
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEP_FILE = CMakeFiles\IMS.dir\views\registrationwindow\registrationwindow.cpp.obj.d
+  FLAGS = -DQT_QML_DEBUG -DQT_DECLARATIVE_DEBUG -g -std=gnu++17
+  INCLUDES = -I"C:/Users/Bibash Sharma/Desktop/Cpp/IMS/build/IMS_autogen/include" -isystem C:/Qt/6.9.1/mingw_64/include/QtWidgets -isystem C:/Qt/6.9.1/mingw_64/include -isystem C:/Qt/6.9.1/mingw_64/include/QtCore -isystem C:/Qt/6.9.1/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.9.1/mingw_64/include/QtGui
+  OBJECT_DIR = CMakeFiles\IMS.dir
+  OBJECT_FILE_DIR = CMakeFiles\IMS.dir\views\registrationwindow
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target IMS
@@ -84,7 +102,7 @@ build CMakeFiles/IMS.dir/views/dashboardwindow/dashboardwindow.cpp.obj: CXX_COMP
 #############################################
 # Link the executable IMS.exe
 
-build IMS.exe: CXX_EXECUTABLE_LINKER__IMS_Debug CMakeFiles/IMS.dir/IMS_autogen/mocs_compilation.cpp.obj CMakeFiles/IMS.dir/main.cpp.obj CMakeFiles/IMS.dir/views/dashboardwindow/dashboardwindow.cpp.obj | C$:/Qt/6.9.1/mingw_64/lib/libQt6Widgets.a C$:/Qt/6.9.1/mingw_64/lib/libQt6Gui.a C$:/Qt/6.9.1/mingw_64/lib/libQt6Core.a || IMS_autogen IMS_autogen_timestamp_deps
+build IMS.exe: CXX_EXECUTABLE_LINKER__IMS_Debug CMakeFiles/IMS.dir/IMS_autogen/mocs_compilation.cpp.obj CMakeFiles/IMS.dir/main.cpp.obj CMakeFiles/IMS.dir/views/dashboardwindow/dashboardwindow.cpp.obj CMakeFiles/IMS.dir/views/loginwindow/loginwindow.cpp.obj CMakeFiles/IMS.dir/views/registrationwindow/registrationwindow.cpp.obj | C$:/Qt/6.9.1/mingw_64/lib/libQt6Widgets.a C$:/Qt/6.9.1/mingw_64/lib/libQt6Gui.a C$:/Qt/6.9.1/mingw_64/lib/libQt6Core.a || IMS_autogen IMS_autogen_timestamp_deps
   CONFIG = Debug
   FLAGS = -DQT_QML_DEBUG -DQT_DECLARATIVE_DEBUG -g
   LINK_LIBRARIES = C:/Qt/6.9.1/mingw_64/lib/libQt6Widgets.a  C:/Qt/6.9.1/mingw_64/lib/libQt6Gui.a  C:/Qt/6.9.1/mingw_64/lib/libQt6Core.a  -lmpr  -luserenv  -ld3d11  -ldxgi  -ldxguid  -ld3d12  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
@@ -128,7 +146,7 @@ build IMS_autogen_timestamp_deps: phony
 #############################################
 # Utility command for IMS_autogen
 
-build IMS_autogen: phony CMakeFiles/IMS_autogen IMS_autogen/include/views/dashboardwindow/ui_dashboardwindow.h IMS_autogen/timestamp IMS_autogen/mocs_compilation.cpp IMS_autogen_timestamp_deps
+build IMS_autogen: phony CMakeFiles/IMS_autogen IMS_autogen/include/views/dashboardwindow/ui_dashboardwindow.h IMS_autogen/include/views/loginwindow/ui_loginwindow.h IMS_autogen/include/views/registrationwindow/ui_registrationwindow.h IMS_autogen/timestamp IMS_autogen/mocs_compilation.cpp IMS_autogen_timestamp_deps
 
 
 #############################################
@@ -145,7 +163,7 @@ build IMS_autogen/timestamp IMS_autogen/mocs_compilation.cpp | ${cmake_ninja_wor
 #############################################
 # Phony custom command for CMakeFiles\IMS_autogen
 
-build CMakeFiles/IMS_autogen IMS_autogen/include/views/dashboardwindow/ui_dashboardwindow.h | ${cmake_ninja_workdir}CMakeFiles/IMS_autogen ${cmake_ninja_workdir}IMS_autogen/include/views/dashboardwindow/ui_dashboardwindow.h: phony IMS_autogen/timestamp || IMS_autogen_timestamp_deps
+build CMakeFiles/IMS_autogen IMS_autogen/include/views/dashboardwindow/ui_dashboardwindow.h IMS_autogen/include/views/loginwindow/ui_loginwindow.h IMS_autogen/include/views/registrationwindow/ui_registrationwindow.h | ${cmake_ninja_workdir}CMakeFiles/IMS_autogen ${cmake_ninja_workdir}IMS_autogen/include/views/dashboardwindow/ui_dashboardwindow.h ${cmake_ninja_workdir}IMS_autogen/include/views/loginwindow/ui_loginwindow.h ${cmake_ninja_workdir}IMS_autogen/include/views/registrationwindow/ui_registrationwindow.h: phony IMS_autogen/timestamp || IMS_autogen_timestamp_deps
 
 # =============================================================================
 # Target aliases.

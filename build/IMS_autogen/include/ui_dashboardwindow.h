@@ -36,6 +36,7 @@ public:
     QPushButton *reportsButton;
     QPushButton *settingsButton;
     QSpacerItem *sidebarSpacer;
+    QPushButton *loginButton;
     QWidget *contentArea;
     QVBoxLayout *contentLayout;
     QWidget *header;
@@ -82,9 +83,10 @@ public:
 "            background-color: #3498db;\n"
 "            border: none;\n"
 "            padding: 10px;\n"
-"            margin: 5px;\n"
+"            margin: 5px 10px;\n"
 "            border-radius: 5px;\n"
 "            font-size: 16px;\n"
+"            text-align: left;\n"
 "        }\n"
 "        QPushButton:hover {\n"
 "            background-color: #2980b9;\n"
@@ -94,11 +96,13 @@ public:
         sidebarLayout->setObjectName("sidebarLayout");
         sidebarTitle = new QLabel(sidebar);
         sidebarTitle->setObjectName("sidebarTitle");
+        sidebarTitle->setAlignment(Qt::AlignCenter);
         sidebarTitle->setStyleSheet(QString::fromUtf8("\n"
 "           color: white;\n"
-"           font-size: 20px;\n"
+"           font-size: 22px;\n"
 "           font-weight: bold;\n"
 "           padding: 20px;\n"
+"           border-bottom: 1px solid #34495e;\n"
 "          "));
 
         sidebarLayout->addWidget(sidebarTitle);
@@ -118,9 +122,27 @@ public:
 
         sidebarLayout->addWidget(settingsButton);
 
-        sidebarSpacer = new QSpacerItem(20, 40, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
+        sidebarSpacer = new QSpacerItem(20, 100, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
 
         sidebarLayout->addItem(sidebarSpacer);
+
+        loginButton = new QPushButton(sidebar);
+        loginButton->setObjectName("loginButton");
+        loginButton->setStyleSheet(QString::fromUtf8("\n"
+"           QPushButton {\n"
+"               background-color: #1abc9c;\n"
+"               color: white;\n"
+"               font-size: 16px;\n"
+"               padding: 10px;\n"
+"               border-radius: 5px;\n"
+"               margin: 10px;\n"
+"           }\n"
+"           QPushButton:hover {\n"
+"               background-color: #16a085;\n"
+"           }\n"
+"          "));
+
+        sidebarLayout->addWidget(loginButton);
 
 
         mainLayout->addWidget(sidebar);
@@ -234,7 +256,6 @@ public:
         DashboardWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(DashboardWindow);
         menuBar->setObjectName("menuBar");
-        menuBar->setGeometry(QRect(0, 0, 1000, 21));
         DashboardWindow->setMenuBar(menuBar);
         statusBar = new QStatusBar(DashboardWindow);
         statusBar->setObjectName("statusBar");
@@ -249,9 +270,10 @@ public:
     {
         DashboardWindow->setWindowTitle(QCoreApplication::translate("DashboardWindow", "Inventory Dashboard", nullptr));
         sidebarTitle->setText(QCoreApplication::translate("DashboardWindow", "IMS Dashboard", nullptr));
-        inventoryButton->setText(QCoreApplication::translate("DashboardWindow", "Inventory", nullptr));
-        reportsButton->setText(QCoreApplication::translate("DashboardWindow", "Reports", nullptr));
-        settingsButton->setText(QCoreApplication::translate("DashboardWindow", "Settings", nullptr));
+        inventoryButton->setText(QCoreApplication::translate("DashboardWindow", "\360\237\223\246 Inventory", nullptr));
+        reportsButton->setText(QCoreApplication::translate("DashboardWindow", "\360\237\223\212 Reports", nullptr));
+        settingsButton->setText(QCoreApplication::translate("DashboardWindow", "\342\232\231\357\270\217 Settings", nullptr));
+        loginButton->setText(QCoreApplication::translate("DashboardWindow", "\360\237\224\220 Logout", nullptr));
         headerTitle->setText(QCoreApplication::translate("DashboardWindow", "Welcome to IMS Dashboard", nullptr));
         overviewLabel->setText(QCoreApplication::translate("DashboardWindow", "Overview", nullptr));
         card1Title->setText(QCoreApplication::translate("DashboardWindow", "Total Items", nullptr));

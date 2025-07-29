@@ -1,12 +1,12 @@
 /****************************************************************************
-** Meta object code from reading C++ file 'dashboardwindow.h'
+** Meta object code from reading C++ file 'registrationwindow.h'
 **
 ** Created by: The Qt Meta Object Compiler version 69 (Qt 6.9.1)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "../../../views/dashboardwindow/dashboardwindow.h"
+#include "../../../views/registrationwindow/registrationwindow.h"
 #include <QtCore/qmetatype.h>
 
 #include <QtCore/qtmochelpers.h>
@@ -16,7 +16,7 @@
 
 #include <QtCore/qxptype_traits.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
-#error "The header file 'dashboardwindow.h' doesn't include <QObject>."
+#error "The header file 'registrationwindow.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 69
 #error "This file was generated using the moc from 6.9.1. It"
 #error "cannot be used with the include files from this version of Qt."
@@ -31,65 +31,65 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 QT_WARNING_DISABLE_GCC("-Wuseless-cast")
 namespace {
-struct qt_meta_tag_ZN15DashboardWindowE_t {};
+struct qt_meta_tag_ZN18RegistrationWindowE_t {};
 } // unnamed namespace
 
-template <> constexpr inline auto DashboardWindow::qt_create_metaobjectdata<qt_meta_tag_ZN15DashboardWindowE_t>()
+template <> constexpr inline auto RegistrationWindow::qt_create_metaobjectdata<qt_meta_tag_ZN18RegistrationWindowE_t>()
 {
     namespace QMC = QtMocConstants;
     QtMocHelpers::StringRefStorage qt_stringData {
-        "DashboardWindow",
-        "handleLogin",
+        "RegistrationWindow",
+        "on_registerButton_clicked",
         ""
     };
 
     QtMocHelpers::UintData qt_methods {
-        // Slot 'handleLogin'
+        // Slot 'on_registerButton_clicked'
         QtMocHelpers::SlotData<void()>(1, 2, QMC::AccessPrivate, QMetaType::Void),
     };
     QtMocHelpers::UintData qt_properties {
     };
     QtMocHelpers::UintData qt_enums {
     };
-    return QtMocHelpers::metaObjectData<DashboardWindow, qt_meta_tag_ZN15DashboardWindowE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+    return QtMocHelpers::metaObjectData<RegistrationWindow, qt_meta_tag_ZN18RegistrationWindowE_t>(QMC::MetaObjectFlag{}, qt_stringData,
             qt_methods, qt_properties, qt_enums);
 }
-Q_CONSTINIT const QMetaObject DashboardWindow::staticMetaObject = { {
+Q_CONSTINIT const QMetaObject RegistrationWindow::staticMetaObject = { {
     QMetaObject::SuperData::link<QMainWindow::staticMetaObject>(),
-    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN15DashboardWindowE_t>.stringdata,
-    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN15DashboardWindowE_t>.data,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN18RegistrationWindowE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN18RegistrationWindowE_t>.data,
     qt_static_metacall,
     nullptr,
-    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN15DashboardWindowE_t>.metaTypes,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN18RegistrationWindowE_t>.metaTypes,
     nullptr
 } };
 
-void DashboardWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+void RegistrationWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
-    auto *_t = static_cast<DashboardWindow *>(_o);
+    auto *_t = static_cast<RegistrationWindow *>(_o);
     if (_c == QMetaObject::InvokeMetaMethod) {
         switch (_id) {
-        case 0: _t->handleLogin(); break;
+        case 0: _t->on_registerButton_clicked(); break;
         default: ;
         }
     }
     (void)_a;
 }
 
-const QMetaObject *DashboardWindow::metaObject() const
+const QMetaObject *RegistrationWindow::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
 }
 
-void *DashboardWindow::qt_metacast(const char *_clname)
+void *RegistrationWindow::qt_metacast(const char *_clname)
 {
     if (!_clname) return nullptr;
-    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN15DashboardWindowE_t>.strings))
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN18RegistrationWindowE_t>.strings))
         return static_cast<void*>(this);
     return QMainWindow::qt_metacast(_clname);
 }
 
-int DashboardWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int RegistrationWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QMainWindow::qt_metacall(_c, _id, _a);
     if (_id < 0)
