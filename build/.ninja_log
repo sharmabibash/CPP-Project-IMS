@@ -1,0 +1,9 @@
+# ninja log v6
+2991	7547	7753605068455566	CMakeFiles/IMS.dir/main.cpp.obj	27611e1adafa45c9
+7864	8311	7753605117186766	IMS.exe	cf8aa5e0da85783b
+26	2980	7753605067247788	IMS_autogen/timestamp	69044b8a5efdb776
+26	2980	7753605067247788	IMS_autogen/mocs_compilation.cpp	69044b8a5efdb776
+26	2980	7753605067247788	C:/Users/Bibash Sharma/Desktop/Cpp/IMS/build/IMS_autogen/timestamp	69044b8a5efdb776
+26	2980	7753605067247788	C:/Users/Bibash Sharma/Desktop/Cpp/IMS/build/IMS_autogen/mocs_compilation.cpp	69044b8a5efdb776
+2982	7410	7753605068362282	CMakeFiles/IMS.dir/IMS_autogen/mocs_compilation.cpp.obj	14cca20ebb11ec37
+2999	7863	7753605068524026	CMakeFiles/IMS.dir/views/dashboardwindow/dashboardwindow.cpp.obj	90191a7bc7417374

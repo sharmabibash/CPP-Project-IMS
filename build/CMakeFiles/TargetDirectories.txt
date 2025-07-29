@@ -1,0 +1,5 @@
+C:/Users/Bibash Sharma/Desktop/Cpp/IMS/build/CMakeFiles/IMS.dir
+C:/Users/Bibash Sharma/Desktop/Cpp/IMS/build/CMakeFiles/edit_cache.dir
+C:/Users/Bibash Sharma/Desktop/Cpp/IMS/build/CMakeFiles/rebuild_cache.dir
+C:/Users/Bibash Sharma/Desktop/Cpp/IMS/build/CMakeFiles/IMS_autogen_timestamp_deps.dir
+C:/Users/Bibash Sharma/Desktop/Cpp/IMS/build/CMakeFiles/IMS_autogen.dir

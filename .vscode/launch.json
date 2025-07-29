@@ -1,0 +1,25 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "cppdbg",
+      "request": "launch",
+      "args": [],
+      "stopAtEntry": false,
+      "externalConsole": true,
+      "cwd": "c:/Users/Bibash Sharma/Desktop/Cpp/IMS",
+      "program": "c:/Users/Bibash Sharma/Desktop/Cpp/IMS/build/Debug/outDebug",
+      "MIMode": "gdb",
+      "miDebuggerPath": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ],
+      "visualizerFile": "c:\\Users\\Bibash Sharma\\AppData\\Roaming\\Code\\User\\workspaceStorage\\5ee5f02c8dcf951b0bc6424743d0af01\\tonka3000.qtvsctools\\qt.natvis.xml"
+    }
+  ]
+}
