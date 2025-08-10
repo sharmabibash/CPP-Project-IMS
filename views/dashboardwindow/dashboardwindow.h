@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 
+class AddProductDialog;  // Forward declaration
+
 namespace Ui {
 class DashboardWindow;
 }
@@ -13,14 +15,16 @@ class DashboardWindow : public QMainWindow
 
 public:
     explicit DashboardWindow(const QString &email = "", 
-                           const QString &companyName = "", 
-                           const QString &mobile = "", 
-                           const QString &regNo = "",
-                           QWidget *parent = nullptr);
+                             const QString &companyName = "", 
+                             const QString &mobile = "", 
+                             const QString &regNo = "",
+                             QWidget *parent = nullptr);
     ~DashboardWindow();
 
 private slots:
-    void handleLogin();  
+    void handleLogin();
+    void openAddProductDialog();
+    void onProductAdded(const QString &name, const QString &category, int quantity, double price, const QString &description);
 
 private:
     Ui::DashboardWindow *ui;
@@ -28,6 +32,8 @@ private:
     QString companyName;
     QString mobile;
     QString regNo;
+
+    AddProductDialog *addProductDialog;
 };
 
-#endif 
+#endif // DASHBOARDWINDOW_H

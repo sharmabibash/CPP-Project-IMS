@@ -32,6 +32,7 @@ public:
     QWidget *sidebar;
     QVBoxLayout *sidebarLayout;
     QLabel *sidebarTitle;
+    QPushButton *addProductButton;
     QPushButton *inventoryButton;
     QPushButton *reportsButton;
     QPushButton *settingsButton;
@@ -64,7 +65,7 @@ public:
         DashboardWindow->resize(1000, 700);
         DashboardWindow->setStyleSheet(QString::fromUtf8("\n"
 "    QMainWindow {\n"
-"        background-color: #f5f6fa;\n"
+"        background-color: #2c3e50;\n"
 "    }\n"
 "   "));
         centralWidget = new QWidget(DashboardWindow);
@@ -106,6 +107,11 @@ public:
 "          "));
 
         sidebarLayout->addWidget(sidebarTitle);
+
+        addProductButton = new QPushButton(sidebar);
+        addProductButton->setObjectName("addProductButton");
+
+        sidebarLayout->addWidget(addProductButton);
 
         inventoryButton = new QPushButton(sidebar);
         inventoryButton->setObjectName("inventoryButton");
@@ -270,6 +276,7 @@ public:
     {
         DashboardWindow->setWindowTitle(QCoreApplication::translate("DashboardWindow", "Inventory Dashboard", nullptr));
         sidebarTitle->setText(QCoreApplication::translate("DashboardWindow", "IMS Dashboard", nullptr));
+        addProductButton->setText(QCoreApplication::translate("DashboardWindow", "\342\236\225 Add Product", nullptr));
         inventoryButton->setText(QCoreApplication::translate("DashboardWindow", "\360\237\223\246 Inventory", nullptr));
         reportsButton->setText(QCoreApplication::translate("DashboardWindow", "\360\237\223\212 Reports", nullptr));
         settingsButton->setText(QCoreApplication::translate("DashboardWindow", "\342\232\231\357\270\217 Settings", nullptr));
