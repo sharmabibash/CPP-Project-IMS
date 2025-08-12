@@ -1,5 +1,6 @@
 C:/Users/Bibash\ Sharma/Desktop/Cpp/IMS/build/IMS_autogen/7LQT4RTPBL/moc_dashboardwindow.cpp: C:/Users/Bibash\ Sharma/Desktop/Cpp/IMS/views/dashboardwindow/dashboardwindow.h \
   C:/Users/Bibash\ Sharma/Desktop/Cpp/IMS/build/IMS_autogen/moc_predefs.h \
+  C:/Qt/6.9.1/mingw_64/include/QtCore/QDateTime \
   C:/Qt/6.9.1/mingw_64/include/QtCore/QJsonArray \
   C:/Qt/6.9.1/mingw_64/include/QtCore/q17memory.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/q20functional.h \

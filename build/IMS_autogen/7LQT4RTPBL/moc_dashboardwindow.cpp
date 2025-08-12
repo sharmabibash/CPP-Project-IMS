@@ -65,6 +65,9 @@ template <> constexpr inline auto DashboardWindow::qt_create_metaobjectdata<qt_m
         "onStockOut",
         "onExportStockCsv",
         "onExportTransactionsCsv",
+        "onSellProductClicked",
+        "onSearchProductClicked",
+        "onConfirmCheckoutClicked",
         "loadProductsToTable",
         "loadTransactionsToTable",
         "loadUsersToTable",
@@ -113,14 +116,20 @@ template <> constexpr inline auto DashboardWindow::qt_create_metaobjectdata<qt_m
         QtMocHelpers::SlotData<void()>(25, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'onExportTransactionsCsv'
         QtMocHelpers::SlotData<void()>(26, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'loadProductsToTable'
+        // Slot 'onSellProductClicked'
         QtMocHelpers::SlotData<void()>(27, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'loadTransactionsToTable'
+        // Slot 'onSearchProductClicked'
         QtMocHelpers::SlotData<void()>(28, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'loadUsersToTable'
+        // Slot 'onConfirmCheckoutClicked'
         QtMocHelpers::SlotData<void()>(29, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'loadSuppliersToTable'
+        // Slot 'loadProductsToTable'
         QtMocHelpers::SlotData<void()>(30, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'loadTransactionsToTable'
+        QtMocHelpers::SlotData<void()>(31, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'loadUsersToTable'
+        QtMocHelpers::SlotData<void()>(32, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'loadSuppliersToTable'
+        QtMocHelpers::SlotData<void()>(33, 2, QMC::AccessPrivate, QMetaType::Void),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -162,10 +171,13 @@ void DashboardWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int 
         case 15: _t->onStockOut(); break;
         case 16: _t->onExportStockCsv(); break;
         case 17: _t->onExportTransactionsCsv(); break;
-        case 18: _t->loadProductsToTable(); break;
-        case 19: _t->loadTransactionsToTable(); break;
-        case 20: _t->loadUsersToTable(); break;
-        case 21: _t->loadSuppliersToTable(); break;
+        case 18: _t->onSellProductClicked(); break;
+        case 19: _t->onSearchProductClicked(); break;
+        case 20: _t->onConfirmCheckoutClicked(); break;
+        case 21: _t->loadProductsToTable(); break;
+        case 22: _t->loadTransactionsToTable(); break;
+        case 23: _t->loadUsersToTable(); break;
+        case 24: _t->loadSuppliersToTable(); break;
         default: ;
         }
     }
@@ -190,14 +202,14 @@ int DashboardWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 22)
+        if (_id < 25)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 22;
+        _id -= 25;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 22)
+        if (_id < 25)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 22;
+        _id -= 25;
     }
     return _id;
 }
