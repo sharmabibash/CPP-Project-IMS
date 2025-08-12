@@ -13,10 +13,10 @@ AddProductDialog::AddProductDialog(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    // Make productIdEdit read-only (assuming you added this QLineEdit in UI)
+    // Make productIdEdit read-only (if exists)
     ui->productIdEdit->setReadOnly(true);
 
-    // Connect buttons to slots
+    // Connect buttons
     connect(ui->saveButton, &QPushButton::clicked, this, &AddProductDialog::onSaveClicked);
     connect(ui->cancelButton, &QPushButton::clicked, this, &AddProductDialog::reject);
 
@@ -30,7 +30,6 @@ AddProductDialog::~AddProductDialog()
     delete ui;
 }
 
-// Helper function to get the next product ID
 int AddProductDialog::calculateNextProductId()
 {
     QString dirPath = QDir::currentPath() + "/../database";
@@ -74,7 +73,7 @@ void AddProductDialog::onSaveClicked()
     double price = ui->priceSpinBox->value();
     QString description = ui->descriptionTextEdit->toPlainText().trimmed();
 
-    // Basic validation
+    // Validation
     if (name.isEmpty()) {
         QMessageBox::warning(this, "Input Error", "Please enter a product name.");
         return;
@@ -85,59 +84,13 @@ void AddProductDialog::onSaveClicked()
         return;
     }
 
-    // Get current product ID from UI
-    int newId = ui->productIdEdit->text().toInt();
-
-    // Ensure database directory exists
-    QString dirPath = QDir::currentPath() + "/../database";
-    QDir dir(dirPath);
-    if (!dir.exists()) {
-        dir.mkpath(".");
-    }
-
-    QString filePath = dirPath + "/products.json";
-
-    // Read existing JSON array
-    QJsonArray productsArray;
-    QFile file(filePath);
-    if (file.open(QIODevice::ReadOnly)) {
-        QByteArray data = file.readAll();
-        file.close();
-
-        QJsonDocument doc = QJsonDocument::fromJson(data);
-        if (doc.isArray()) {
-            productsArray = doc.array();
-        }
-    }
-
-    // Prepare JSON object for new product
-    QJsonObject newProduct;
-    newProduct["id"] = newId;
-    newProduct["name"] = name;
-    newProduct["category"] = category;
-    newProduct["quantity"] = quantity;
-    newProduct["price"] = price;
-    newProduct["description"] = description;
-
-    // Append new product
-    productsArray.append(newProduct);
-
-    // Write back to file
-    if (!file.open(QIODevice::WriteOnly | QIODevice::Truncate)) {
-        QMessageBox::critical(this, "File Error", "Unable to open file for writing.");
-        return;
-    }
-
-    QJsonDocument saveDoc(productsArray);
-    file.write(saveDoc.toJson());
-    file.close();
-
+    // Emit productAdded signal with the new product info
     emit productAdded(name, category, quantity, price, description);
 
-    // Show success message
+    // Inform success
     QMessageBox::information(this, "Success", "Product added successfully!");
 
-    // Clear input fields for next entry (except productId)
+    // Clear inputs for next entry
     ui->productNameEdit->clear();
     ui->categoryComboBox->setCurrentIndex(0);
     ui->quantitySpinBox->setValue(1);
@@ -145,7 +98,8 @@ void AddProductDialog::onSaveClicked()
     ui->descriptionTextEdit->clear();
 
     // Update product ID to next value
-    ui->productIdEdit->setText(QString::number(newId + 1));
+    int nextId = calculateNextProductId();
+    ui->productIdEdit->setText(QString::number(nextId));
 
     // Keep dialog open for more entries
 }

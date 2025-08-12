@@ -1,27 +1,30 @@
 {
-  "configurations": [
-    {
-      "name": "windows-gcc-x64",
-      "includePath": [
-        "${workspaceFolder}/**",
-        "C:/Qt/6.9.1/mingw_64/include",
-        "C:/Qt/6.9.1/mingw_64/include/QtWidgets",
-        "C:/Qt/6.9.1/mingw_64/include/QtCore",
-        "C:/Qt/6.9.1/mingw_64/include/QtGui",
-        "C:/Qt/6.9.1/mingw_64/include/QtNetwork",
-        "C:/Qt/6.9.1/mingw_64/include/QtOpenGL",
-        "C:/Qt/6.9.1/mingw_64/include/QtWidgets/QApplication"
-      ],
-      "compilerPath": "C:/mingw64/bin/g++.exe",
-      "cStandard": "gnu17",
-      "cppStandard": "gnu++17",
-      "intelliSenseMode": "windows-gcc-x64",
-      "defines": [
-        "QT_CORE_LIB",
-        "QT_GUI_LIB",
-        "QT_WIDGETS_LIB"
-      ]
-    }
-  ],
-  "version": 4
+    "configurations": [
+        {
+            "name": "windows-gcc-x64",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "C:/Qt/6.9.1/mingw_64/include",
+                "C:/Qt/6.9.1/mingw_64/include/QtWidgets",
+                "C:/Qt/6.9.1/mingw_64/include/QtCore",
+                "C:/Qt/6.9.1/mingw_64/include/QtGui",
+                "C:/Qt/6.9.1/mingw_64/include/QtNetwork",
+                "C:/Qt/6.9.1/mingw_64/include/QtOpenGL",
+                "C:/Qt/6.9.1/mingw_64/include/QtWidgets/QApplication",
+                "${workspaceFolder}/views/dashboardwindow",
+                "${workspaceFolder}/build/IMS_autogen/include",
+                "${workspaceFolder}/views/addproductdialog"
+            ],
+            "compilerPath": "C:/mingw64/bin/g++.exe",
+            "cStandard": "gnu17",
+            "cppStandard": "gnu++17",
+            "intelliSenseMode": "windows-gcc-x64",
+            "defines": [
+                "QT_CORE_LIB",
+                "QT_GUI_LIB",
+                "QT_WIDGETS_LIB"
+            ]
+        }
+    ],
+    "version": 4
 }

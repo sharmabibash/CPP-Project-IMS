@@ -13,12 +13,16 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
+#include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpacerItem>
+#include <QtWidgets/QStackedWidget>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QTableWidget>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -32,11 +36,13 @@ public:
     QWidget *sidebar;
     QVBoxLayout *sidebarLayout;
     QLabel *sidebarTitle;
-    QPushButton *addProductButton;
-    QPushButton *inventoryButton;
-    QPushButton *reportsButton;
-    QPushButton *settingsButton;
+    QPushButton *productsButton;
+    QPushButton *transactionsButton;
+    QPushButton *reportsButtonSidebar;
+    QPushButton *suppliersButton;
+    QPushButton *usersButton;
     QSpacerItem *sidebarSpacer;
+    QPushButton *addProductButton;
     QPushButton *loginButton;
     QWidget *contentArea;
     QVBoxLayout *contentLayout;
@@ -44,9 +50,12 @@ public:
     QHBoxLayout *headerLayout;
     QLabel *headerTitle;
     QSpacerItem *headerSpacer;
-    QWidget *mainContent;
-    QGridLayout *contentGrid;
+    QStackedWidget *stackedPages;
+    QWidget *overviewPage;
+    QVBoxLayout *overviewLayout;
     QLabel *overviewLabel;
+    QWidget *overviewCards;
+    QGridLayout *overviewGrid;
     QWidget *card1;
     QVBoxLayout *vboxLayout;
     QLabel *card1Title;
@@ -55,6 +64,54 @@ public:
     QVBoxLayout *vboxLayout1;
     QLabel *card2Title;
     QLabel *card2Value;
+    QWidget *productsPage;
+    QVBoxLayout *vboxLayout2;
+    QWidget *productsToolbar;
+    QHBoxLayout *hboxLayout;
+    QLineEdit *productsSearch;
+    QPushButton *productsSearchButton;
+    QSpacerItem *productsSpacer;
+    QPushButton *productsAddButton;
+    QPushButton *productsEditButton;
+    QPushButton *productsDeleteButton;
+    QTableWidget *productsTable;
+    QWidget *transactionsPage;
+    QVBoxLayout *vboxLayout3;
+    QWidget *transactionsToolbar;
+    QHBoxLayout *hboxLayout1;
+    QPushButton *stockInButton;
+    QPushButton *stockOutButton;
+    QSpacerItem *transSpacer;
+    QLineEdit *transFilter;
+    QPushButton *transFilterButton;
+    QTableWidget *transactionsTable;
+    QWidget *usersPage;
+    QVBoxLayout *vboxLayout4;
+    QWidget *usersToolbar;
+    QHBoxLayout *hboxLayout2;
+    QPushButton *usersAddButton;
+    QPushButton *usersEditButton;
+    QPushButton *usersDeleteButton;
+    QSpacerItem *usersSpacer;
+    QTableWidget *usersTable;
+    QWidget *reportsPage;
+    QVBoxLayout *vboxLayout5;
+    QWidget *reportsToolbar;
+    QHBoxLayout *hboxLayout3;
+    QPushButton *exportStockCsv;
+    QPushButton *exportTransactionsCsv;
+    QSpacerItem *reportsSpacer;
+    QWidget *reportsContent;
+    QVBoxLayout *vboxLayout6;
+    QLabel *reportsPlaceholder;
+    QWidget *suppliersPage;
+    QVBoxLayout *vboxLayout7;
+    QWidget *suppliersToolbar;
+    QHBoxLayout *hboxLayout4;
+    QPushButton *suppliersAddButton;
+    QPushButton *customersAddButton;
+    QSpacerItem *suppliersSpacer;
+    QTableWidget *suppliersTable;
     QMenuBar *menuBar;
     QStatusBar *statusBar;
 
@@ -108,29 +165,39 @@ public:
 
         sidebarLayout->addWidget(sidebarTitle);
 
+        productsButton = new QPushButton(sidebar);
+        productsButton->setObjectName("productsButton");
+
+        sidebarLayout->addWidget(productsButton);
+
+        transactionsButton = new QPushButton(sidebar);
+        transactionsButton->setObjectName("transactionsButton");
+
+        sidebarLayout->addWidget(transactionsButton);
+
+        reportsButtonSidebar = new QPushButton(sidebar);
+        reportsButtonSidebar->setObjectName("reportsButtonSidebar");
+
+        sidebarLayout->addWidget(reportsButtonSidebar);
+
+        suppliersButton = new QPushButton(sidebar);
+        suppliersButton->setObjectName("suppliersButton");
+
+        sidebarLayout->addWidget(suppliersButton);
+
+        usersButton = new QPushButton(sidebar);
+        usersButton->setObjectName("usersButton");
+
+        sidebarLayout->addWidget(usersButton);
+
+        sidebarSpacer = new QSpacerItem(0, 0, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
+
+        sidebarLayout->addItem(sidebarSpacer);
+
         addProductButton = new QPushButton(sidebar);
         addProductButton->setObjectName("addProductButton");
 
         sidebarLayout->addWidget(addProductButton);
-
-        inventoryButton = new QPushButton(sidebar);
-        inventoryButton->setObjectName("inventoryButton");
-
-        sidebarLayout->addWidget(inventoryButton);
-
-        reportsButton = new QPushButton(sidebar);
-        reportsButton->setObjectName("reportsButton");
-
-        sidebarLayout->addWidget(reportsButton);
-
-        settingsButton = new QPushButton(sidebar);
-        settingsButton->setObjectName("settingsButton");
-
-        sidebarLayout->addWidget(settingsButton);
-
-        sidebarSpacer = new QSpacerItem(20, 100, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
-
-        sidebarLayout->addItem(sidebarSpacer);
 
         loginButton = new QPushButton(sidebar);
         loginButton->setObjectName("loginButton");
@@ -160,101 +227,349 @@ public:
         header = new QWidget(contentArea);
         header->setObjectName("header");
         header->setStyleSheet(QString::fromUtf8("\n"
-"           background-color: white;\n"
-"           border-bottom: 1px solid #e0e0e0;\n"
+"           background-color: #34495e;\n"
+"           border-radius:30%;\n"
 "           padding: 15px;\n"
 "          "));
         headerLayout = new QHBoxLayout(header);
         headerLayout->setObjectName("headerLayout");
         headerTitle = new QLabel(header);
         headerTitle->setObjectName("headerTitle");
-        headerTitle->setStyleSheet(QString::fromUtf8("\n"
-"              font-size: 24px;\n"
-"              font-weight: bold;\n"
-"              color: #2c3e50;\n"
-"             "));
+        headerTitle->setStyleSheet(QString::fromUtf8("font-size: 24px; font-weight: bold; color: #fdfdfdff;"));
 
         headerLayout->addWidget(headerTitle);
 
-        headerSpacer = new QSpacerItem(40, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
+        headerSpacer = new QSpacerItem(0, 0, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
 
         headerLayout->addItem(headerSpacer);
 
 
         contentLayout->addWidget(header);
 
-        mainContent = new QWidget(contentArea);
-        mainContent->setObjectName("mainContent");
-        mainContent->setStyleSheet(QString::fromUtf8("\n"
-"           background-color: white;\n"
-"           border-radius: 10px;\n"
-"           margin: 10px;\n"
-"           padding: 20px;\n"
-"          "));
-        contentGrid = new QGridLayout(mainContent);
-        contentGrid->setObjectName("contentGrid");
-        overviewLabel = new QLabel(mainContent);
+        stackedPages = new QStackedWidget(contentArea);
+        stackedPages->setObjectName("stackedPages");
+        overviewPage = new QWidget();
+        overviewPage->setObjectName("overviewPage");
+        overviewPage->setStyleSheet(QString::fromUtf8("background-color: white; border-radius: 10px; margin: 10px; padding: 20px;"));
+        overviewLayout = new QVBoxLayout(overviewPage);
+        overviewLayout->setObjectName("overviewLayout");
+        overviewLabel = new QLabel(overviewPage);
         overviewLabel->setObjectName("overviewLabel");
-        overviewLabel->setStyleSheet(QString::fromUtf8("\n"
-"              font-size: 18px;\n"
-"              font-weight: bold;\n"
-"              color: #2c3e50;\n"
-"             "));
 
-        contentGrid->addWidget(overviewLabel, 0, 0, 1, 1);
+        overviewLayout->addWidget(overviewLabel);
 
-        card1 = new QWidget(mainContent);
+        overviewCards = new QWidget(overviewPage);
+        overviewCards->setObjectName("overviewCards");
+        overviewGrid = new QGridLayout(overviewCards);
+        overviewGrid->setObjectName("overviewGrid");
+        overviewGrid->setContentsMargins(0, 0, 0, 0);
+        card1 = new QWidget(overviewCards);
         card1->setObjectName("card1");
-        card1->setStyleSheet(QString::fromUtf8("\n"
-"              background-color: #3498db;\n"
-"              border-radius: 8px;\n"
-"              padding: 15px;\n"
-"              color: white;\n"
-"             "));
+        card1->setStyleSheet(QString::fromUtf8("background-color: #3498db; border-radius: 8px; padding: 15px; color: white;"));
         vboxLayout = new QVBoxLayout(card1);
         vboxLayout->setObjectName("vboxLayout");
+        vboxLayout->setContentsMargins(0, 0, 0, 0);
         card1Title = new QLabel(card1);
         card1Title->setObjectName("card1Title");
-        card1Title->setStyleSheet(QString::fromUtf8("font-size: 16px; font-weight: bold;"));
 
         vboxLayout->addWidget(card1Title);
 
         card1Value = new QLabel(card1);
         card1Value->setObjectName("card1Value");
-        card1Value->setStyleSheet(QString::fromUtf8("font-size: 24px;"));
 
         vboxLayout->addWidget(card1Value);
 
 
-        contentGrid->addWidget(card1, 1, 0, 1, 1);
+        overviewGrid->addWidget(card1, 0, 0, 1, 1);
 
-        card2 = new QWidget(mainContent);
+        card2 = new QWidget(overviewCards);
         card2->setObjectName("card2");
-        card2->setStyleSheet(QString::fromUtf8("\n"
-"              background-color: #e74c3c;\n"
-"              border-radius: 8px;\n"
-"              padding: 15px;\n"
-"              color: white;\n"
-"             "));
+        card2->setStyleSheet(QString::fromUtf8("background-color: #e74c3c; border-radius: 8px; padding: 15px; color: white;"));
         vboxLayout1 = new QVBoxLayout(card2);
         vboxLayout1->setObjectName("vboxLayout1");
+        vboxLayout1->setContentsMargins(0, 0, 0, 0);
         card2Title = new QLabel(card2);
         card2Title->setObjectName("card2Title");
-        card2Title->setStyleSheet(QString::fromUtf8("font-size: 16px; font-weight: bold;"));
 
         vboxLayout1->addWidget(card2Title);
 
         card2Value = new QLabel(card2);
         card2Value->setObjectName("card2Value");
-        card2Value->setStyleSheet(QString::fromUtf8("font-size: 24px;"));
 
         vboxLayout1->addWidget(card2Value);
 
 
-        contentGrid->addWidget(card2, 1, 1, 1, 1);
+        overviewGrid->addWidget(card2, 0, 1, 1, 1);
 
 
-        contentLayout->addWidget(mainContent);
+        overviewLayout->addWidget(overviewCards);
+
+        stackedPages->addWidget(overviewPage);
+        productsPage = new QWidget();
+        productsPage->setObjectName("productsPage");
+        productsPage->setStyleSheet(QString::fromUtf8("background-color: #071625ff; border-radius: 10px; margin: 10px; padding: 10px;"));
+        vboxLayout2 = new QVBoxLayout(productsPage);
+        vboxLayout2->setObjectName("vboxLayout2");
+        productsToolbar = new QWidget(productsPage);
+        productsToolbar->setObjectName("productsToolbar");
+        hboxLayout = new QHBoxLayout(productsToolbar);
+        hboxLayout->setObjectName("hboxLayout");
+        hboxLayout->setContentsMargins(0, 0, 0, 0);
+        productsSearch = new QLineEdit(productsToolbar);
+        productsSearch->setObjectName("productsSearch");
+
+        hboxLayout->addWidget(productsSearch);
+
+        productsSearchButton = new QPushButton(productsToolbar);
+        productsSearchButton->setObjectName("productsSearchButton");
+
+        hboxLayout->addWidget(productsSearchButton);
+
+        productsSpacer = new QSpacerItem(0, 0, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
+
+        hboxLayout->addItem(productsSpacer);
+
+        productsAddButton = new QPushButton(productsToolbar);
+        productsAddButton->setObjectName("productsAddButton");
+
+        hboxLayout->addWidget(productsAddButton);
+
+        productsEditButton = new QPushButton(productsToolbar);
+        productsEditButton->setObjectName("productsEditButton");
+
+        hboxLayout->addWidget(productsEditButton);
+
+        productsDeleteButton = new QPushButton(productsToolbar);
+        productsDeleteButton->setObjectName("productsDeleteButton");
+
+        hboxLayout->addWidget(productsDeleteButton);
+
+
+        vboxLayout2->addWidget(productsToolbar);
+
+        productsTable = new QTableWidget(productsPage);
+        if (productsTable->columnCount() < 9)
+            productsTable->setColumnCount(9);
+        QTableWidgetItem *__qtablewidgetitem = new QTableWidgetItem();
+        productsTable->setHorizontalHeaderItem(0, __qtablewidgetitem);
+        QTableWidgetItem *__qtablewidgetitem1 = new QTableWidgetItem();
+        productsTable->setHorizontalHeaderItem(1, __qtablewidgetitem1);
+        QTableWidgetItem *__qtablewidgetitem2 = new QTableWidgetItem();
+        productsTable->setHorizontalHeaderItem(2, __qtablewidgetitem2);
+        QTableWidgetItem *__qtablewidgetitem3 = new QTableWidgetItem();
+        productsTable->setHorizontalHeaderItem(3, __qtablewidgetitem3);
+        QTableWidgetItem *__qtablewidgetitem4 = new QTableWidgetItem();
+        productsTable->setHorizontalHeaderItem(4, __qtablewidgetitem4);
+        QTableWidgetItem *__qtablewidgetitem5 = new QTableWidgetItem();
+        productsTable->setHorizontalHeaderItem(5, __qtablewidgetitem5);
+        QTableWidgetItem *__qtablewidgetitem6 = new QTableWidgetItem();
+        productsTable->setHorizontalHeaderItem(6, __qtablewidgetitem6);
+        QTableWidgetItem *__qtablewidgetitem7 = new QTableWidgetItem();
+        productsTable->setHorizontalHeaderItem(7, __qtablewidgetitem7);
+        QTableWidgetItem *__qtablewidgetitem8 = new QTableWidgetItem();
+        productsTable->setHorizontalHeaderItem(8, __qtablewidgetitem8);
+        productsTable->setObjectName("productsTable");
+        productsTable->setColumnCount(9);
+
+        vboxLayout2->addWidget(productsTable);
+
+        stackedPages->addWidget(productsPage);
+        transactionsPage = new QWidget();
+        transactionsPage->setObjectName("transactionsPage");
+        transactionsPage->setStyleSheet(QString::fromUtf8("background-color: white; border-radius: 10px; margin: 10px; padding: 10px;"));
+        vboxLayout3 = new QVBoxLayout(transactionsPage);
+        vboxLayout3->setObjectName("vboxLayout3");
+        transactionsToolbar = new QWidget(transactionsPage);
+        transactionsToolbar->setObjectName("transactionsToolbar");
+        hboxLayout1 = new QHBoxLayout(transactionsToolbar);
+        hboxLayout1->setObjectName("hboxLayout1");
+        hboxLayout1->setContentsMargins(0, 0, 0, 0);
+        stockInButton = new QPushButton(transactionsToolbar);
+        stockInButton->setObjectName("stockInButton");
+
+        hboxLayout1->addWidget(stockInButton);
+
+        stockOutButton = new QPushButton(transactionsToolbar);
+        stockOutButton->setObjectName("stockOutButton");
+
+        hboxLayout1->addWidget(stockOutButton);
+
+        transSpacer = new QSpacerItem(0, 0, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
+
+        hboxLayout1->addItem(transSpacer);
+
+        transFilter = new QLineEdit(transactionsToolbar);
+        transFilter->setObjectName("transFilter");
+
+        hboxLayout1->addWidget(transFilter);
+
+        transFilterButton = new QPushButton(transactionsToolbar);
+        transFilterButton->setObjectName("transFilterButton");
+
+        hboxLayout1->addWidget(transFilterButton);
+
+
+        vboxLayout3->addWidget(transactionsToolbar);
+
+        transactionsTable = new QTableWidget(transactionsPage);
+        if (transactionsTable->columnCount() < 6)
+            transactionsTable->setColumnCount(6);
+        QTableWidgetItem *__qtablewidgetitem9 = new QTableWidgetItem();
+        transactionsTable->setHorizontalHeaderItem(0, __qtablewidgetitem9);
+        QTableWidgetItem *__qtablewidgetitem10 = new QTableWidgetItem();
+        transactionsTable->setHorizontalHeaderItem(1, __qtablewidgetitem10);
+        QTableWidgetItem *__qtablewidgetitem11 = new QTableWidgetItem();
+        transactionsTable->setHorizontalHeaderItem(2, __qtablewidgetitem11);
+        QTableWidgetItem *__qtablewidgetitem12 = new QTableWidgetItem();
+        transactionsTable->setHorizontalHeaderItem(3, __qtablewidgetitem12);
+        QTableWidgetItem *__qtablewidgetitem13 = new QTableWidgetItem();
+        transactionsTable->setHorizontalHeaderItem(4, __qtablewidgetitem13);
+        QTableWidgetItem *__qtablewidgetitem14 = new QTableWidgetItem();
+        transactionsTable->setHorizontalHeaderItem(5, __qtablewidgetitem14);
+        transactionsTable->setObjectName("transactionsTable");
+        transactionsTable->setColumnCount(6);
+
+        vboxLayout3->addWidget(transactionsTable);
+
+        stackedPages->addWidget(transactionsPage);
+        usersPage = new QWidget();
+        usersPage->setObjectName("usersPage");
+        usersPage->setStyleSheet(QString::fromUtf8("background-color: white; border-radius: 10px; margin: 10px; padding: 10px;"));
+        vboxLayout4 = new QVBoxLayout(usersPage);
+        vboxLayout4->setObjectName("vboxLayout4");
+        usersToolbar = new QWidget(usersPage);
+        usersToolbar->setObjectName("usersToolbar");
+        hboxLayout2 = new QHBoxLayout(usersToolbar);
+        hboxLayout2->setObjectName("hboxLayout2");
+        hboxLayout2->setContentsMargins(0, 0, 0, 0);
+        usersAddButton = new QPushButton(usersToolbar);
+        usersAddButton->setObjectName("usersAddButton");
+
+        hboxLayout2->addWidget(usersAddButton);
+
+        usersEditButton = new QPushButton(usersToolbar);
+        usersEditButton->setObjectName("usersEditButton");
+
+        hboxLayout2->addWidget(usersEditButton);
+
+        usersDeleteButton = new QPushButton(usersToolbar);
+        usersDeleteButton->setObjectName("usersDeleteButton");
+
+        hboxLayout2->addWidget(usersDeleteButton);
+
+        usersSpacer = new QSpacerItem(0, 0, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
+
+        hboxLayout2->addItem(usersSpacer);
+
+
+        vboxLayout4->addWidget(usersToolbar);
+
+        usersTable = new QTableWidget(usersPage);
+        if (usersTable->columnCount() < 4)
+            usersTable->setColumnCount(4);
+        QTableWidgetItem *__qtablewidgetitem15 = new QTableWidgetItem();
+        usersTable->setHorizontalHeaderItem(0, __qtablewidgetitem15);
+        QTableWidgetItem *__qtablewidgetitem16 = new QTableWidgetItem();
+        usersTable->setHorizontalHeaderItem(1, __qtablewidgetitem16);
+        QTableWidgetItem *__qtablewidgetitem17 = new QTableWidgetItem();
+        usersTable->setHorizontalHeaderItem(2, __qtablewidgetitem17);
+        QTableWidgetItem *__qtablewidgetitem18 = new QTableWidgetItem();
+        usersTable->setHorizontalHeaderItem(3, __qtablewidgetitem18);
+        usersTable->setObjectName("usersTable");
+        usersTable->setColumnCount(4);
+
+        vboxLayout4->addWidget(usersTable);
+
+        stackedPages->addWidget(usersPage);
+        reportsPage = new QWidget();
+        reportsPage->setObjectName("reportsPage");
+        reportsPage->setStyleSheet(QString::fromUtf8("background-color: white; border-radius: 10px; margin: 10px; padding: 10px;"));
+        vboxLayout5 = new QVBoxLayout(reportsPage);
+        vboxLayout5->setObjectName("vboxLayout5");
+        reportsToolbar = new QWidget(reportsPage);
+        reportsToolbar->setObjectName("reportsToolbar");
+        hboxLayout3 = new QHBoxLayout(reportsToolbar);
+        hboxLayout3->setObjectName("hboxLayout3");
+        hboxLayout3->setContentsMargins(0, 0, 0, 0);
+        exportStockCsv = new QPushButton(reportsToolbar);
+        exportStockCsv->setObjectName("exportStockCsv");
+
+        hboxLayout3->addWidget(exportStockCsv);
+
+        exportTransactionsCsv = new QPushButton(reportsToolbar);
+        exportTransactionsCsv->setObjectName("exportTransactionsCsv");
+
+        hboxLayout3->addWidget(exportTransactionsCsv);
+
+        reportsSpacer = new QSpacerItem(0, 0, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
+
+        hboxLayout3->addItem(reportsSpacer);
+
+
+        vboxLayout5->addWidget(reportsToolbar);
+
+        reportsContent = new QWidget(reportsPage);
+        reportsContent->setObjectName("reportsContent");
+        vboxLayout6 = new QVBoxLayout(reportsContent);
+        vboxLayout6->setObjectName("vboxLayout6");
+        vboxLayout6->setContentsMargins(0, 0, 0, 0);
+        reportsPlaceholder = new QLabel(reportsContent);
+        reportsPlaceholder->setObjectName("reportsPlaceholder");
+
+        vboxLayout6->addWidget(reportsPlaceholder);
+
+
+        vboxLayout5->addWidget(reportsContent);
+
+        stackedPages->addWidget(reportsPage);
+        suppliersPage = new QWidget();
+        suppliersPage->setObjectName("suppliersPage");
+        suppliersPage->setStyleSheet(QString::fromUtf8("background-color: white; border-radius: 10px; margin: 10px; padding: 10px;"));
+        vboxLayout7 = new QVBoxLayout(suppliersPage);
+        vboxLayout7->setObjectName("vboxLayout7");
+        suppliersToolbar = new QWidget(suppliersPage);
+        suppliersToolbar->setObjectName("suppliersToolbar");
+        hboxLayout4 = new QHBoxLayout(suppliersToolbar);
+        hboxLayout4->setObjectName("hboxLayout4");
+        hboxLayout4->setContentsMargins(0, 0, 0, 0);
+        suppliersAddButton = new QPushButton(suppliersToolbar);
+        suppliersAddButton->setObjectName("suppliersAddButton");
+
+        hboxLayout4->addWidget(suppliersAddButton);
+
+        customersAddButton = new QPushButton(suppliersToolbar);
+        customersAddButton->setObjectName("customersAddButton");
+
+        hboxLayout4->addWidget(customersAddButton);
+
+        suppliersSpacer = new QSpacerItem(0, 0, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
+
+        hboxLayout4->addItem(suppliersSpacer);
+
+
+        vboxLayout7->addWidget(suppliersToolbar);
+
+        suppliersTable = new QTableWidget(suppliersPage);
+        if (suppliersTable->columnCount() < 5)
+            suppliersTable->setColumnCount(5);
+        QTableWidgetItem *__qtablewidgetitem19 = new QTableWidgetItem();
+        suppliersTable->setHorizontalHeaderItem(0, __qtablewidgetitem19);
+        QTableWidgetItem *__qtablewidgetitem20 = new QTableWidgetItem();
+        suppliersTable->setHorizontalHeaderItem(1, __qtablewidgetitem20);
+        QTableWidgetItem *__qtablewidgetitem21 = new QTableWidgetItem();
+        suppliersTable->setHorizontalHeaderItem(2, __qtablewidgetitem21);
+        QTableWidgetItem *__qtablewidgetitem22 = new QTableWidgetItem();
+        suppliersTable->setHorizontalHeaderItem(3, __qtablewidgetitem22);
+        QTableWidgetItem *__qtablewidgetitem23 = new QTableWidgetItem();
+        suppliersTable->setHorizontalHeaderItem(4, __qtablewidgetitem23);
+        suppliersTable->setObjectName("suppliersTable");
+        suppliersTable->setColumnCount(5);
+
+        vboxLayout7->addWidget(suppliersTable);
+
+        stackedPages->addWidget(suppliersPage);
+
+        contentLayout->addWidget(stackedPages);
 
 
         mainLayout->addWidget(contentArea);
@@ -276,10 +591,12 @@ public:
     {
         DashboardWindow->setWindowTitle(QCoreApplication::translate("DashboardWindow", "Inventory Dashboard", nullptr));
         sidebarTitle->setText(QCoreApplication::translate("DashboardWindow", "IMS Dashboard", nullptr));
+        productsButton->setText(QCoreApplication::translate("DashboardWindow", "\360\237\223\246 Products", nullptr));
+        transactionsButton->setText(QCoreApplication::translate("DashboardWindow", "\360\237\224\201 Transactions", nullptr));
+        reportsButtonSidebar->setText(QCoreApplication::translate("DashboardWindow", "\360\237\223\212 Reports", nullptr));
+        suppliersButton->setText(QCoreApplication::translate("DashboardWindow", "\360\237\217\267 Suppliers And Customers", nullptr));
+        usersButton->setText(QCoreApplication::translate("DashboardWindow", "\360\237\221\245 Users", nullptr));
         addProductButton->setText(QCoreApplication::translate("DashboardWindow", "\342\236\225 Add Product", nullptr));
-        inventoryButton->setText(QCoreApplication::translate("DashboardWindow", "\360\237\223\246 Inventory", nullptr));
-        reportsButton->setText(QCoreApplication::translate("DashboardWindow", "\360\237\223\212 Reports", nullptr));
-        settingsButton->setText(QCoreApplication::translate("DashboardWindow", "\342\232\231\357\270\217 Settings", nullptr));
         loginButton->setText(QCoreApplication::translate("DashboardWindow", "\360\237\224\220 Logout", nullptr));
         headerTitle->setText(QCoreApplication::translate("DashboardWindow", "Welcome to IMS Dashboard", nullptr));
         overviewLabel->setText(QCoreApplication::translate("DashboardWindow", "Overview", nullptr));
@@ -287,6 +604,71 @@ public:
         card1Value->setText(QCoreApplication::translate("DashboardWindow", "1,234", nullptr));
         card2Title->setText(QCoreApplication::translate("DashboardWindow", "Low Stock", nullptr));
         card2Value->setText(QCoreApplication::translate("DashboardWindow", "45", nullptr));
+        productsSearch->setPlaceholderText(QCoreApplication::translate("DashboardWindow", "Search products by name/type/brand/supplier...", nullptr));
+        productsSearchButton->setText(QCoreApplication::translate("DashboardWindow", "Search", nullptr));
+        productsAddButton->setText(QCoreApplication::translate("DashboardWindow", "\342\236\225 Add", nullptr));
+        productsEditButton->setText(QCoreApplication::translate("DashboardWindow", "\342\234\217\357\270\217 Edit", nullptr));
+        productsDeleteButton->setText(QCoreApplication::translate("DashboardWindow", "\360\237\227\221 Delete", nullptr));
+        QTableWidgetItem *___qtablewidgetitem = productsTable->horizontalHeaderItem(0);
+        ___qtablewidgetitem->setText(QCoreApplication::translate("DashboardWindow", "ID", nullptr));
+        QTableWidgetItem *___qtablewidgetitem1 = productsTable->horizontalHeaderItem(1);
+        ___qtablewidgetitem1->setText(QCoreApplication::translate("DashboardWindow", "Name", nullptr));
+        QTableWidgetItem *___qtablewidgetitem2 = productsTable->horizontalHeaderItem(2);
+        ___qtablewidgetitem2->setText(QCoreApplication::translate("DashboardWindow", "Category", nullptr));
+        QTableWidgetItem *___qtablewidgetitem3 = productsTable->horizontalHeaderItem(3);
+        ___qtablewidgetitem3->setText(QCoreApplication::translate("DashboardWindow", "Brand", nullptr));
+        QTableWidgetItem *___qtablewidgetitem4 = productsTable->horizontalHeaderItem(4);
+        ___qtablewidgetitem4->setText(QCoreApplication::translate("DashboardWindow", "Supplier", nullptr));
+        QTableWidgetItem *___qtablewidgetitem5 = productsTable->horizontalHeaderItem(5);
+        ___qtablewidgetitem5->setText(QCoreApplication::translate("DashboardWindow", "Qty", nullptr));
+        QTableWidgetItem *___qtablewidgetitem6 = productsTable->horizontalHeaderItem(6);
+        ___qtablewidgetitem6->setText(QCoreApplication::translate("DashboardWindow", "Unit", nullptr));
+        QTableWidgetItem *___qtablewidgetitem7 = productsTable->horizontalHeaderItem(7);
+        ___qtablewidgetitem7->setText(QCoreApplication::translate("DashboardWindow", "Min", nullptr));
+        QTableWidgetItem *___qtablewidgetitem8 = productsTable->horizontalHeaderItem(8);
+        ___qtablewidgetitem8->setText(QCoreApplication::translate("DashboardWindow", "Expiry", nullptr));
+        stockInButton->setText(QCoreApplication::translate("DashboardWindow", "Stock In", nullptr));
+        stockOutButton->setText(QCoreApplication::translate("DashboardWindow", "Stock Out", nullptr));
+        transFilter->setPlaceholderText(QCoreApplication::translate("DashboardWindow", "Filter by product/date/type...", nullptr));
+        transFilterButton->setText(QCoreApplication::translate("DashboardWindow", "Filter", nullptr));
+        QTableWidgetItem *___qtablewidgetitem9 = transactionsTable->horizontalHeaderItem(0);
+        ___qtablewidgetitem9->setText(QCoreApplication::translate("DashboardWindow", "Date", nullptr));
+        QTableWidgetItem *___qtablewidgetitem10 = transactionsTable->horizontalHeaderItem(1);
+        ___qtablewidgetitem10->setText(QCoreApplication::translate("DashboardWindow", "Type", nullptr));
+        QTableWidgetItem *___qtablewidgetitem11 = transactionsTable->horizontalHeaderItem(2);
+        ___qtablewidgetitem11->setText(QCoreApplication::translate("DashboardWindow", "Product", nullptr));
+        QTableWidgetItem *___qtablewidgetitem12 = transactionsTable->horizontalHeaderItem(3);
+        ___qtablewidgetitem12->setText(QCoreApplication::translate("DashboardWindow", "Qty", nullptr));
+        QTableWidgetItem *___qtablewidgetitem13 = transactionsTable->horizontalHeaderItem(4);
+        ___qtablewidgetitem13->setText(QCoreApplication::translate("DashboardWindow", "User", nullptr));
+        QTableWidgetItem *___qtablewidgetitem14 = transactionsTable->horizontalHeaderItem(5);
+        ___qtablewidgetitem14->setText(QCoreApplication::translate("DashboardWindow", "Note", nullptr));
+        usersAddButton->setText(QCoreApplication::translate("DashboardWindow", "Add User", nullptr));
+        usersEditButton->setText(QCoreApplication::translate("DashboardWindow", "Edit User", nullptr));
+        usersDeleteButton->setText(QCoreApplication::translate("DashboardWindow", "Delete User", nullptr));
+        QTableWidgetItem *___qtablewidgetitem15 = usersTable->horizontalHeaderItem(0);
+        ___qtablewidgetitem15->setText(QCoreApplication::translate("DashboardWindow", "Username", nullptr));
+        QTableWidgetItem *___qtablewidgetitem16 = usersTable->horizontalHeaderItem(1);
+        ___qtablewidgetitem16->setText(QCoreApplication::translate("DashboardWindow", "Role", nullptr));
+        QTableWidgetItem *___qtablewidgetitem17 = usersTable->horizontalHeaderItem(2);
+        ___qtablewidgetitem17->setText(QCoreApplication::translate("DashboardWindow", "Last Login", nullptr));
+        QTableWidgetItem *___qtablewidgetitem18 = usersTable->horizontalHeaderItem(3);
+        ___qtablewidgetitem18->setText(QCoreApplication::translate("DashboardWindow", "Actions", nullptr));
+        exportStockCsv->setText(QCoreApplication::translate("DashboardWindow", "Export Stock CSV", nullptr));
+        exportTransactionsCsv->setText(QCoreApplication::translate("DashboardWindow", "Export Transactions CSV", nullptr));
+        reportsPlaceholder->setText(QCoreApplication::translate("DashboardWindow", "Choose report options to view or export.", nullptr));
+        suppliersAddButton->setText(QCoreApplication::translate("DashboardWindow", "Add Supplier", nullptr));
+        customersAddButton->setText(QCoreApplication::translate("DashboardWindow", "Add Customer", nullptr));
+        QTableWidgetItem *___qtablewidgetitem19 = suppliersTable->horizontalHeaderItem(0);
+        ___qtablewidgetitem19->setText(QCoreApplication::translate("DashboardWindow", "ID", nullptr));
+        QTableWidgetItem *___qtablewidgetitem20 = suppliersTable->horizontalHeaderItem(1);
+        ___qtablewidgetitem20->setText(QCoreApplication::translate("DashboardWindow", "Name", nullptr));
+        QTableWidgetItem *___qtablewidgetitem21 = suppliersTable->horizontalHeaderItem(2);
+        ___qtablewidgetitem21->setText(QCoreApplication::translate("DashboardWindow", "Contact", nullptr));
+        QTableWidgetItem *___qtablewidgetitem22 = suppliersTable->horizontalHeaderItem(3);
+        ___qtablewidgetitem22->setText(QCoreApplication::translate("DashboardWindow", "Type", nullptr));
+        QTableWidgetItem *___qtablewidgetitem23 = suppliersTable->horizontalHeaderItem(4);
+        ___qtablewidgetitem23->setText(QCoreApplication::translate("DashboardWindow", "Notes", nullptr));
     } // retranslateUi
 
 };
