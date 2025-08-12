@@ -19,47 +19,74 @@ void DashboardWindow::onProductsUpdate(int row, int column)
     if (row < 0 || column < 0) return;
 
     QJsonArray products = readProductsFromFile();
+    QTableWidgetItem* editedItem = ui->productsTable->item(row, column);
+
+    if (!editedItem) {
+        qWarning() << "Invalid item at row" << row << "column" << column;
+        return;
+    }
 
     int id = ui->productsTable->item(row, 0)->text().toInt();
+    bool conversionOk = false;
+    QString errorMessage;
 
     for (int i = 0; i < products.size(); ++i) {
         QJsonObject product = products[i].toObject();
         if (product["id"].toInt() == id) {
-            // Update based on column edited:
-            bool ok;
+            QString newValue = editedItem->text();
+
             switch (column) {
                 case 1: // Name
-                    product["name"] = ui->productsTable->item(row, column)->text();
-                    break;
-                case 2: // Category
-                    product["category"] = ui->productsTable->item(row, column)->text();
-                    break;
-                case 3: // Quantity
-                    product["quantity"] = ui->productsTable->item(row, column)->text().toInt(&ok);
-                    if (!ok) {
-                        QMessageBox::warning(this, "Invalid Input", "Quantity must be an integer.");
-                        loadProductsToTable(); // revert
-                        return;
+                    if (newValue.isEmpty()) {
+                        errorMessage = "Name cannot be empty";
+                        break;
                     }
+                    product["name"] = newValue;
                     break;
-                case 4: // Price
-                    product["price"] = ui->productsTable->item(row, column)->text().toDouble(&ok);
-                    if (!ok) {
-                        QMessageBox::warning(this, "Invalid Input", "Price must be a number.");
-                        loadProductsToTable(); // revert
-                        return;
+
+                case 2: // Description
+                    product["description"] = newValue;
+                    break;
+
+                case 3: // Price
+                {
+                    double price = newValue.toDouble(&conversionOk);
+                    if (!conversionOk || price < 0) {
+                        errorMessage = "Price must be a positive number";
+                        break;
                     }
+                    product["price"] = price;
                     break;
-                case 5: // Description
-                    product["description"] = ui->productsTable->item(row, column)->text();
+                }
+
+                case 4: // Quantity
+                {
+                    int quantity = newValue.toInt(&conversionOk);
+                    if (!conversionOk || quantity < 0) {
+                        errorMessage = "Quantity must be a positive integer";
+                        break;
+                    }
+                    product["quantity"] = quantity;
                     break;
+                }
+
                 default:
-                    break;
+                    qWarning() << "Unhandled column update:" << column;
+                    return;
             }
+
+            if (!errorMessage.isEmpty()) {
+                QMessageBox::warning(this, "Invalid Input", errorMessage);
+                loadProductsToTable(); // Revert changes
+                return;
+            }
+
             products[i] = product;
             writeProductsToFile(products);
-            //qDebug() << "Product updated in JSON file.";
+
             return;
         }
     }
+
+    qWarning() << "Product with ID" << id << "not found";
 }

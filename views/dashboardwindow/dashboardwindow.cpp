@@ -67,6 +67,38 @@ DashboardWindow::DashboardWindow(const QString &email,
 
     // Connect AddProductDialog signal to slot
     connect(addProductDialog, &AddProductDialog::productAdded, this, &DashboardWindow::onProductAdded);
+// Set header height
+// Set header height
+ui->productsTable->horizontalHeader()->setFixedHeight(70);
+
+// Disable stretching to keep column widths fixed
+ui->productsTable->horizontalHeader()->setSectionResizeMode(QHeaderView::Fixed);
+
+// Set column widths (indices 0-4)
+ui->productsTable->setColumnWidth(0, 50);   // ID
+ui->productsTable->setColumnWidth(1, 150);  // Name
+ui->productsTable->setColumnWidth(2, 300);  // Description
+ui->productsTable->setColumnWidth(3, 200);  // Price
+ui->productsTable->setColumnWidth(4, 150);  // Quantity
+
+// Center-align header text
+ui->productsTable->horizontalHeader()->setDefaultAlignment(Qt::AlignCenter);
+
+// Center-align all cell content
+for (int row = 0; row < ui->productsTable->rowCount(); ++row) {
+    for (int col = 0; col < ui->productsTable->columnCount(); ++col) {
+        QTableWidgetItem* item = ui->productsTable->item(row, col);
+        if (!item) {
+            item = new QTableWidgetItem();
+            ui->productsTable->setItem(row, col, item);
+        }
+        item->setTextAlignment(Qt::AlignCenter);
+    }
+}
+
+// Optional: Disable word wrapping if text should stay in one line
+ui->productsTable->setWordWrap(false);
+
 
     // Connect navigation buttons
     connect(ui->productsButton, &QPushButton::clicked, this, &DashboardWindow::showProductsPage);
@@ -156,4 +188,3 @@ void DashboardWindow::loadSuppliersToTable()
 {
     ui->suppliersTable->setRowCount(0);
 }
-

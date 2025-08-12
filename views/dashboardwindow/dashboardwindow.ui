@@ -197,56 +197,66 @@
          </widget>
 
          <!-- Products page index 1 -->
-         <widget class="QWidget" name="productsPage">
-          <property name="styleSheet"><string notr="true">background-color: #071625ff; border-radius: 10px; margin: 10px; padding: 10px;</string></property>
-          <layout class="QVBoxLayout">
-           <item>
-            <widget class="QWidget" name="productsToolbar">
-             <layout class="QHBoxLayout">
-              <item><widget class="QLineEdit" name="productsSearch"><property name="placeholderText"><string>Search products by name/type/brand/supplier...</string></property></widget></item>
-              <item><widget class="QPushButton" name="productsSearchButton"><property name="text"><string>Search</string></property></widget></item>
-              <item><spacer name="productsSpacer"/></item>
-              <item><widget class="QPushButton" name="productsAddButton"><property name="text"><string>➕ Add</string></property></widget></item>
-              <item><widget class="QPushButton" name="productsEditButton"><property name="text"><string>✏️ Edit</string></property></widget></item>
-              <item><widget class="QPushButton" name="productsDeleteButton"><property name="text"><string>🗑 Delete</string></property></widget></item>
-             </layout>
-            </widget>
-           </item>
-           <item>
-            <widget class="QTableWidget" name="productsTable">
-             <property name="columnCount"><number>9</number></property>
-             <column>
-              <property name="text"><string>ID</string></property>
-             </column>
-             <column>
-              <property name="text"><string>Name</string></property>
-             </column>
-             <column>
-              <property name="text"><string>Category</string></property>
-             </column>
-             <column>
-              <property name="text"><string>Brand</string></property>
-             </column>
-             <column>
-              <property name="text"><string>Supplier</string></property>
-             </column>
-             <column>
-              <property name="text"><string>Qty</string></property>
-             </column>
-             <column>
-              <property name="text"><string>Unit</string></property>
-             </column>
-             <column>
-              <property name="text"><string>Min</string></property>
-             </column>
-             <column>
-              <property name="text"><string>Expiry</string></property>
-             </column>
-            </widget>
-           </item>
-          </layout>
-         </widget>
+     <!-- Products page index 1 -->
+<!-- Products page index 1 -->
+<widget class="QWidget" name="productsPage">
+  <property name="styleSheet"><string notr="true">background-color: #071625ff; border-radius: 10px; margin: 10px; padding: 10px;</string></property>
+  <layout class="QVBoxLayout">
+    <item>
+      <widget class="QWidget" name="productsToolbar">
+        <layout class="QHBoxLayout">
+          <item><widget class="QLineEdit" name="productsSearch"><property name="placeholderText"><string>Search products...</string></property></widget></item>
+          <item><widget class="QPushButton" name="productsSearchButton"><property name="text"><string>Search</string></property></widget></item>
+          <item><spacer name="productsSpacer"/></item>
+          <item><widget class="QPushButton" name="productsAddButton"><property name="text"><string>➕ Add</string></property></widget></item>
+          <item><widget class="QPushButton" name="productsEditButton"><property name="text"><string>✏️ Edit</string></property></widget></item>
+          <item><widget class="QPushButton" name="productsDeleteButton"><property name="text"><string>🗑 Delete</string></property></widget></item>
+        </layout>
+      </widget>
+    </item>
+    <item>
+      <widget class="QTableWidget" name="productsTable">
+        <property name="columnCount"><number>5</number></property>
+        <property name="styleSheet">
+  <string notr="true">
+    QTableWidget {
+        background-color: #071625ff;
+        border: 1px solid #ddd;
+        gridline-color: #eee;
+        padding: 18px;
+    }
+    QHeaderView::section {
+        background-color: #3498db;
+        color: white;
+        padding: 8px;
+        border: none;
+        font-weight: bold;
+        font-size: 14px;
+        
+        
+    }
+  </string>
+</property>
 
+        <column>
+          <property name="text"><string>ID</string></property>
+        </column>
+        <column>
+          <property name="text"><string>Name</string></property>
+        </column>
+        <column>
+          <property name="text"><string>Description</string></property>
+        </column>
+        <column>
+          <property name="text"><string>Price</string></property>
+        </column>
+        <column>
+          <property name="text"><string>Quantity</string></property>
+        </column>
+      </widget>
+    </item>
+  </layout>
+</widget>
          <!-- Transactions page index 2 -->
          <widget class="QWidget" name="transactionsPage">
           <property name="styleSheet"><string notr="true">background-color: white; border-radius: 10px; margin: 10px; padding: 10px;</string></property>

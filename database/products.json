@@ -1,42 +1,26 @@
 [
     {
-        "category": "Electronics",
-        "description": "k",
-        "id": 6,
-        "name": "444",
-        "price": 11,
-        "quantity": 1
-    },
-    {
-        "category": "Electronics",
-        "description": "k",
-        "id": 6,
-        "name": "444",
-        "price": 11,
-        "quantity": 1
-    },
-    {
-        "category": "Electronics",
-        "description": "k",
-        "id": 7,
-        "name": "444",
-        "price": 11,
-        "quantity": 1
-    },
-    {
-        "category": "Electronics",
-        "description": "h",
-        "id": 8,
-        "name": "xfghjk",
-        "price": 44,
+        "category": "55",
+        "description": "bibash sharma from pulchowk campus lalitpur",
+        "id": 1,
+        "name": "ball",
+        "price": 200,
         "quantity": 7
     },
     {
         "category": "Electronics",
-        "description": "h",
-        "id": 9,
-        "name": "xfghjk",
-        "price": 44,
-        "quantity": 7
+        "description": "hghjg",
+        "id": 2,
+        "name": "apple",
+        "price": 4000,
+        "quantity": 4
+    },
+    {
+        "category": "Electronics",
+        "description": "gjhk",
+        "id": 3,
+        "name": "fghjk",
+        "price": 1000,
+        "quantity": 1
     }
 ]

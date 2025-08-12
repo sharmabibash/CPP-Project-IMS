@@ -348,8 +348,8 @@ public:
         vboxLayout2->addWidget(productsToolbar);
 
         productsTable = new QTableWidget(productsPage);
-        if (productsTable->columnCount() < 9)
-            productsTable->setColumnCount(9);
+        if (productsTable->columnCount() < 5)
+            productsTable->setColumnCount(5);
         QTableWidgetItem *__qtablewidgetitem = new QTableWidgetItem();
         productsTable->setHorizontalHeaderItem(0, __qtablewidgetitem);
         QTableWidgetItem *__qtablewidgetitem1 = new QTableWidgetItem();
@@ -360,16 +360,26 @@ public:
         productsTable->setHorizontalHeaderItem(3, __qtablewidgetitem3);
         QTableWidgetItem *__qtablewidgetitem4 = new QTableWidgetItem();
         productsTable->setHorizontalHeaderItem(4, __qtablewidgetitem4);
-        QTableWidgetItem *__qtablewidgetitem5 = new QTableWidgetItem();
-        productsTable->setHorizontalHeaderItem(5, __qtablewidgetitem5);
-        QTableWidgetItem *__qtablewidgetitem6 = new QTableWidgetItem();
-        productsTable->setHorizontalHeaderItem(6, __qtablewidgetitem6);
-        QTableWidgetItem *__qtablewidgetitem7 = new QTableWidgetItem();
-        productsTable->setHorizontalHeaderItem(7, __qtablewidgetitem7);
-        QTableWidgetItem *__qtablewidgetitem8 = new QTableWidgetItem();
-        productsTable->setHorizontalHeaderItem(8, __qtablewidgetitem8);
         productsTable->setObjectName("productsTable");
-        productsTable->setColumnCount(9);
+        productsTable->setColumnCount(5);
+        productsTable->setStyleSheet(QString::fromUtf8("\n"
+"    QTableWidget {\n"
+"        background-color: #071625ff;\n"
+"        border: 1px solid #ddd;\n"
+"        gridline-color: #eee;\n"
+"        padding: 18px;\n"
+"    }\n"
+"    QHeaderView::section {\n"
+"        background-color: #3498db;\n"
+"        color: white;\n"
+"        padding: 8px;\n"
+"        border: none;\n"
+"        font-weight: bold;\n"
+"        font-size: 14px;\n"
+"        \n"
+"        \n"
+"    }\n"
+"  "));
 
         vboxLayout2->addWidget(productsTable);
 
@@ -414,18 +424,18 @@ public:
         transactionsTable = new QTableWidget(transactionsPage);
         if (transactionsTable->columnCount() < 6)
             transactionsTable->setColumnCount(6);
+        QTableWidgetItem *__qtablewidgetitem5 = new QTableWidgetItem();
+        transactionsTable->setHorizontalHeaderItem(0, __qtablewidgetitem5);
+        QTableWidgetItem *__qtablewidgetitem6 = new QTableWidgetItem();
+        transactionsTable->setHorizontalHeaderItem(1, __qtablewidgetitem6);
+        QTableWidgetItem *__qtablewidgetitem7 = new QTableWidgetItem();
+        transactionsTable->setHorizontalHeaderItem(2, __qtablewidgetitem7);
+        QTableWidgetItem *__qtablewidgetitem8 = new QTableWidgetItem();
+        transactionsTable->setHorizontalHeaderItem(3, __qtablewidgetitem8);
         QTableWidgetItem *__qtablewidgetitem9 = new QTableWidgetItem();
-        transactionsTable->setHorizontalHeaderItem(0, __qtablewidgetitem9);
+        transactionsTable->setHorizontalHeaderItem(4, __qtablewidgetitem9);
         QTableWidgetItem *__qtablewidgetitem10 = new QTableWidgetItem();
-        transactionsTable->setHorizontalHeaderItem(1, __qtablewidgetitem10);
-        QTableWidgetItem *__qtablewidgetitem11 = new QTableWidgetItem();
-        transactionsTable->setHorizontalHeaderItem(2, __qtablewidgetitem11);
-        QTableWidgetItem *__qtablewidgetitem12 = new QTableWidgetItem();
-        transactionsTable->setHorizontalHeaderItem(3, __qtablewidgetitem12);
-        QTableWidgetItem *__qtablewidgetitem13 = new QTableWidgetItem();
-        transactionsTable->setHorizontalHeaderItem(4, __qtablewidgetitem13);
-        QTableWidgetItem *__qtablewidgetitem14 = new QTableWidgetItem();
-        transactionsTable->setHorizontalHeaderItem(5, __qtablewidgetitem14);
+        transactionsTable->setHorizontalHeaderItem(5, __qtablewidgetitem10);
         transactionsTable->setObjectName("transactionsTable");
         transactionsTable->setColumnCount(6);
 
@@ -467,14 +477,14 @@ public:
         usersTable = new QTableWidget(usersPage);
         if (usersTable->columnCount() < 4)
             usersTable->setColumnCount(4);
-        QTableWidgetItem *__qtablewidgetitem15 = new QTableWidgetItem();
-        usersTable->setHorizontalHeaderItem(0, __qtablewidgetitem15);
-        QTableWidgetItem *__qtablewidgetitem16 = new QTableWidgetItem();
-        usersTable->setHorizontalHeaderItem(1, __qtablewidgetitem16);
-        QTableWidgetItem *__qtablewidgetitem17 = new QTableWidgetItem();
-        usersTable->setHorizontalHeaderItem(2, __qtablewidgetitem17);
-        QTableWidgetItem *__qtablewidgetitem18 = new QTableWidgetItem();
-        usersTable->setHorizontalHeaderItem(3, __qtablewidgetitem18);
+        QTableWidgetItem *__qtablewidgetitem11 = new QTableWidgetItem();
+        usersTable->setHorizontalHeaderItem(0, __qtablewidgetitem11);
+        QTableWidgetItem *__qtablewidgetitem12 = new QTableWidgetItem();
+        usersTable->setHorizontalHeaderItem(1, __qtablewidgetitem12);
+        QTableWidgetItem *__qtablewidgetitem13 = new QTableWidgetItem();
+        usersTable->setHorizontalHeaderItem(2, __qtablewidgetitem13);
+        QTableWidgetItem *__qtablewidgetitem14 = new QTableWidgetItem();
+        usersTable->setHorizontalHeaderItem(3, __qtablewidgetitem14);
         usersTable->setObjectName("usersTable");
         usersTable->setColumnCount(4);
 
@@ -552,16 +562,16 @@ public:
         suppliersTable = new QTableWidget(suppliersPage);
         if (suppliersTable->columnCount() < 5)
             suppliersTable->setColumnCount(5);
+        QTableWidgetItem *__qtablewidgetitem15 = new QTableWidgetItem();
+        suppliersTable->setHorizontalHeaderItem(0, __qtablewidgetitem15);
+        QTableWidgetItem *__qtablewidgetitem16 = new QTableWidgetItem();
+        suppliersTable->setHorizontalHeaderItem(1, __qtablewidgetitem16);
+        QTableWidgetItem *__qtablewidgetitem17 = new QTableWidgetItem();
+        suppliersTable->setHorizontalHeaderItem(2, __qtablewidgetitem17);
+        QTableWidgetItem *__qtablewidgetitem18 = new QTableWidgetItem();
+        suppliersTable->setHorizontalHeaderItem(3, __qtablewidgetitem18);
         QTableWidgetItem *__qtablewidgetitem19 = new QTableWidgetItem();
-        suppliersTable->setHorizontalHeaderItem(0, __qtablewidgetitem19);
-        QTableWidgetItem *__qtablewidgetitem20 = new QTableWidgetItem();
-        suppliersTable->setHorizontalHeaderItem(1, __qtablewidgetitem20);
-        QTableWidgetItem *__qtablewidgetitem21 = new QTableWidgetItem();
-        suppliersTable->setHorizontalHeaderItem(2, __qtablewidgetitem21);
-        QTableWidgetItem *__qtablewidgetitem22 = new QTableWidgetItem();
-        suppliersTable->setHorizontalHeaderItem(3, __qtablewidgetitem22);
-        QTableWidgetItem *__qtablewidgetitem23 = new QTableWidgetItem();
-        suppliersTable->setHorizontalHeaderItem(4, __qtablewidgetitem23);
+        suppliersTable->setHorizontalHeaderItem(4, __qtablewidgetitem19);
         suppliersTable->setObjectName("suppliersTable");
         suppliersTable->setColumnCount(5);
 
@@ -604,7 +614,7 @@ public:
         card1Value->setText(QCoreApplication::translate("DashboardWindow", "1,234", nullptr));
         card2Title->setText(QCoreApplication::translate("DashboardWindow", "Low Stock", nullptr));
         card2Value->setText(QCoreApplication::translate("DashboardWindow", "45", nullptr));
-        productsSearch->setPlaceholderText(QCoreApplication::translate("DashboardWindow", "Search products by name/type/brand/supplier...", nullptr));
+        productsSearch->setPlaceholderText(QCoreApplication::translate("DashboardWindow", "Search products...", nullptr));
         productsSearchButton->setText(QCoreApplication::translate("DashboardWindow", "Search", nullptr));
         productsAddButton->setText(QCoreApplication::translate("DashboardWindow", "\342\236\225 Add", nullptr));
         productsEditButton->setText(QCoreApplication::translate("DashboardWindow", "\342\234\217\357\270\217 Edit", nullptr));
@@ -614,61 +624,53 @@ public:
         QTableWidgetItem *___qtablewidgetitem1 = productsTable->horizontalHeaderItem(1);
         ___qtablewidgetitem1->setText(QCoreApplication::translate("DashboardWindow", "Name", nullptr));
         QTableWidgetItem *___qtablewidgetitem2 = productsTable->horizontalHeaderItem(2);
-        ___qtablewidgetitem2->setText(QCoreApplication::translate("DashboardWindow", "Category", nullptr));
+        ___qtablewidgetitem2->setText(QCoreApplication::translate("DashboardWindow", "Description", nullptr));
         QTableWidgetItem *___qtablewidgetitem3 = productsTable->horizontalHeaderItem(3);
-        ___qtablewidgetitem3->setText(QCoreApplication::translate("DashboardWindow", "Brand", nullptr));
+        ___qtablewidgetitem3->setText(QCoreApplication::translate("DashboardWindow", "Price", nullptr));
         QTableWidgetItem *___qtablewidgetitem4 = productsTable->horizontalHeaderItem(4);
-        ___qtablewidgetitem4->setText(QCoreApplication::translate("DashboardWindow", "Supplier", nullptr));
-        QTableWidgetItem *___qtablewidgetitem5 = productsTable->horizontalHeaderItem(5);
-        ___qtablewidgetitem5->setText(QCoreApplication::translate("DashboardWindow", "Qty", nullptr));
-        QTableWidgetItem *___qtablewidgetitem6 = productsTable->horizontalHeaderItem(6);
-        ___qtablewidgetitem6->setText(QCoreApplication::translate("DashboardWindow", "Unit", nullptr));
-        QTableWidgetItem *___qtablewidgetitem7 = productsTable->horizontalHeaderItem(7);
-        ___qtablewidgetitem7->setText(QCoreApplication::translate("DashboardWindow", "Min", nullptr));
-        QTableWidgetItem *___qtablewidgetitem8 = productsTable->horizontalHeaderItem(8);
-        ___qtablewidgetitem8->setText(QCoreApplication::translate("DashboardWindow", "Expiry", nullptr));
+        ___qtablewidgetitem4->setText(QCoreApplication::translate("DashboardWindow", "Quantity", nullptr));
         stockInButton->setText(QCoreApplication::translate("DashboardWindow", "Stock In", nullptr));
         stockOutButton->setText(QCoreApplication::translate("DashboardWindow", "Stock Out", nullptr));
         transFilter->setPlaceholderText(QCoreApplication::translate("DashboardWindow", "Filter by product/date/type...", nullptr));
         transFilterButton->setText(QCoreApplication::translate("DashboardWindow", "Filter", nullptr));
-        QTableWidgetItem *___qtablewidgetitem9 = transactionsTable->horizontalHeaderItem(0);
-        ___qtablewidgetitem9->setText(QCoreApplication::translate("DashboardWindow", "Date", nullptr));
-        QTableWidgetItem *___qtablewidgetitem10 = transactionsTable->horizontalHeaderItem(1);
-        ___qtablewidgetitem10->setText(QCoreApplication::translate("DashboardWindow", "Type", nullptr));
-        QTableWidgetItem *___qtablewidgetitem11 = transactionsTable->horizontalHeaderItem(2);
-        ___qtablewidgetitem11->setText(QCoreApplication::translate("DashboardWindow", "Product", nullptr));
-        QTableWidgetItem *___qtablewidgetitem12 = transactionsTable->horizontalHeaderItem(3);
-        ___qtablewidgetitem12->setText(QCoreApplication::translate("DashboardWindow", "Qty", nullptr));
-        QTableWidgetItem *___qtablewidgetitem13 = transactionsTable->horizontalHeaderItem(4);
-        ___qtablewidgetitem13->setText(QCoreApplication::translate("DashboardWindow", "User", nullptr));
-        QTableWidgetItem *___qtablewidgetitem14 = transactionsTable->horizontalHeaderItem(5);
-        ___qtablewidgetitem14->setText(QCoreApplication::translate("DashboardWindow", "Note", nullptr));
+        QTableWidgetItem *___qtablewidgetitem5 = transactionsTable->horizontalHeaderItem(0);
+        ___qtablewidgetitem5->setText(QCoreApplication::translate("DashboardWindow", "Date", nullptr));
+        QTableWidgetItem *___qtablewidgetitem6 = transactionsTable->horizontalHeaderItem(1);
+        ___qtablewidgetitem6->setText(QCoreApplication::translate("DashboardWindow", "Type", nullptr));
+        QTableWidgetItem *___qtablewidgetitem7 = transactionsTable->horizontalHeaderItem(2);
+        ___qtablewidgetitem7->setText(QCoreApplication::translate("DashboardWindow", "Product", nullptr));
+        QTableWidgetItem *___qtablewidgetitem8 = transactionsTable->horizontalHeaderItem(3);
+        ___qtablewidgetitem8->setText(QCoreApplication::translate("DashboardWindow", "Qty", nullptr));
+        QTableWidgetItem *___qtablewidgetitem9 = transactionsTable->horizontalHeaderItem(4);
+        ___qtablewidgetitem9->setText(QCoreApplication::translate("DashboardWindow", "User", nullptr));
+        QTableWidgetItem *___qtablewidgetitem10 = transactionsTable->horizontalHeaderItem(5);
+        ___qtablewidgetitem10->setText(QCoreApplication::translate("DashboardWindow", "Note", nullptr));
         usersAddButton->setText(QCoreApplication::translate("DashboardWindow", "Add User", nullptr));
         usersEditButton->setText(QCoreApplication::translate("DashboardWindow", "Edit User", nullptr));
         usersDeleteButton->setText(QCoreApplication::translate("DashboardWindow", "Delete User", nullptr));
-        QTableWidgetItem *___qtablewidgetitem15 = usersTable->horizontalHeaderItem(0);
-        ___qtablewidgetitem15->setText(QCoreApplication::translate("DashboardWindow", "Username", nullptr));
-        QTableWidgetItem *___qtablewidgetitem16 = usersTable->horizontalHeaderItem(1);
-        ___qtablewidgetitem16->setText(QCoreApplication::translate("DashboardWindow", "Role", nullptr));
-        QTableWidgetItem *___qtablewidgetitem17 = usersTable->horizontalHeaderItem(2);
-        ___qtablewidgetitem17->setText(QCoreApplication::translate("DashboardWindow", "Last Login", nullptr));
-        QTableWidgetItem *___qtablewidgetitem18 = usersTable->horizontalHeaderItem(3);
-        ___qtablewidgetitem18->setText(QCoreApplication::translate("DashboardWindow", "Actions", nullptr));
+        QTableWidgetItem *___qtablewidgetitem11 = usersTable->horizontalHeaderItem(0);
+        ___qtablewidgetitem11->setText(QCoreApplication::translate("DashboardWindow", "Username", nullptr));
+        QTableWidgetItem *___qtablewidgetitem12 = usersTable->horizontalHeaderItem(1);
+        ___qtablewidgetitem12->setText(QCoreApplication::translate("DashboardWindow", "Role", nullptr));
+        QTableWidgetItem *___qtablewidgetitem13 = usersTable->horizontalHeaderItem(2);
+        ___qtablewidgetitem13->setText(QCoreApplication::translate("DashboardWindow", "Last Login", nullptr));
+        QTableWidgetItem *___qtablewidgetitem14 = usersTable->horizontalHeaderItem(3);
+        ___qtablewidgetitem14->setText(QCoreApplication::translate("DashboardWindow", "Actions", nullptr));
         exportStockCsv->setText(QCoreApplication::translate("DashboardWindow", "Export Stock CSV", nullptr));
         exportTransactionsCsv->setText(QCoreApplication::translate("DashboardWindow", "Export Transactions CSV", nullptr));
         reportsPlaceholder->setText(QCoreApplication::translate("DashboardWindow", "Choose report options to view or export.", nullptr));
         suppliersAddButton->setText(QCoreApplication::translate("DashboardWindow", "Add Supplier", nullptr));
         customersAddButton->setText(QCoreApplication::translate("DashboardWindow", "Add Customer", nullptr));
-        QTableWidgetItem *___qtablewidgetitem19 = suppliersTable->horizontalHeaderItem(0);
-        ___qtablewidgetitem19->setText(QCoreApplication::translate("DashboardWindow", "ID", nullptr));
-        QTableWidgetItem *___qtablewidgetitem20 = suppliersTable->horizontalHeaderItem(1);
-        ___qtablewidgetitem20->setText(QCoreApplication::translate("DashboardWindow", "Name", nullptr));
-        QTableWidgetItem *___qtablewidgetitem21 = suppliersTable->horizontalHeaderItem(2);
-        ___qtablewidgetitem21->setText(QCoreApplication::translate("DashboardWindow", "Contact", nullptr));
-        QTableWidgetItem *___qtablewidgetitem22 = suppliersTable->horizontalHeaderItem(3);
-        ___qtablewidgetitem22->setText(QCoreApplication::translate("DashboardWindow", "Type", nullptr));
-        QTableWidgetItem *___qtablewidgetitem23 = suppliersTable->horizontalHeaderItem(4);
-        ___qtablewidgetitem23->setText(QCoreApplication::translate("DashboardWindow", "Notes", nullptr));
+        QTableWidgetItem *___qtablewidgetitem15 = suppliersTable->horizontalHeaderItem(0);
+        ___qtablewidgetitem15->setText(QCoreApplication::translate("DashboardWindow", "ID", nullptr));
+        QTableWidgetItem *___qtablewidgetitem16 = suppliersTable->horizontalHeaderItem(1);
+        ___qtablewidgetitem16->setText(QCoreApplication::translate("DashboardWindow", "Name", nullptr));
+        QTableWidgetItem *___qtablewidgetitem17 = suppliersTable->horizontalHeaderItem(2);
+        ___qtablewidgetitem17->setText(QCoreApplication::translate("DashboardWindow", "Contact", nullptr));
+        QTableWidgetItem *___qtablewidgetitem18 = suppliersTable->horizontalHeaderItem(3);
+        ___qtablewidgetitem18->setText(QCoreApplication::translate("DashboardWindow", "Type", nullptr));
+        QTableWidgetItem *___qtablewidgetitem19 = suppliersTable->horizontalHeaderItem(4);
+        ___qtablewidgetitem19->setText(QCoreApplication::translate("DashboardWindow", "Notes", nullptr));
     } // retranslateUi
 
 };
