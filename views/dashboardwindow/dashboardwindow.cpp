@@ -13,6 +13,7 @@
 #include <QJsonArray>
 #include <QJsonObject>
 #include <QDir>
+#include <QInputDialog>
 #include <QCoreApplication>
 #include <QAbstractItemView>
 #include "../functions/login/handle_login.cpp"
@@ -24,7 +25,7 @@
 #include "../functions/actions/onproduct_delete.cpp"
 #include "../functions/read_write/readproduct.cpp"
 #include "../functions/read_write/writeproduct.cpp"
-#include "../functions/transactions/load_transactions.cpp"
+#include "../functions/report/report.h"
 
 DashboardWindow::DashboardWindow(const QString &email,
                                  const QString &companyName,
@@ -67,7 +68,7 @@ DashboardWindow::DashboardWindow(const QString &email,
 
     connect(ui->exportStockCsv, &QPushButton::clicked, this, &DashboardWindow::onExportStockCsv);
     connect(ui->exportTransactionsCsv, &QPushButton::clicked, this, &DashboardWindow::onExportTransactionsCsv);
-    // connect(ui->reportsButtonSidebar, &QPushButton::clicked, this, &DashboardWindow::showTodaySales);
+    
 
     ui->productsTable->horizontalHeader()->setFixedHeight(70);
     ui->productsTable->horizontalHeader()->setSectionResizeMode(QHeaderView::Fixed);
@@ -100,10 +101,8 @@ DashboardWindow::DashboardWindow(const QString &email,
     connect(ui->exportStockCsv, &QPushButton::clicked, this, &DashboardWindow::onExportStockCsv);
     connect(ui->exportTransactionsCsv, &QPushButton::clicked, this, &DashboardWindow::onExportTransactionsCsv);
     connect(ui->productsTable, &QTableWidget::cellChanged, this, &DashboardWindow::onProductsUpdate);
-// connect(ui->generateInvoiceButton, &QPushButton::clicked, this, &DashboardWindow::onGenerateInvoiceClicked);
-    // connect(ui->exportTodaySalesButton, &QPushButton::clicked, this, &DashboardWindow::onExportTodaySalesClicked);
-    // connect(ui->reportsButtonSidebar, &QPushButton::clicked, this, &DashboardWindow::showTodaySales);
-    // Set header alignment and style
+    connect(ui->exportTodaySalesButton, &QPushButton::clicked, this, &DashboardWindow::onExportTodaySalesClicked);
+    connect(ui->generateInvoiceButton, &QPushButton::clicked, this, &DashboardWindow::onGenerateInvoiceClicked);
     ui->productsTable->horizontalHeader()->setStyleSheet(
         "QHeaderView::section {"
         "background-color: #26bfdaff;"
@@ -139,8 +138,6 @@ DashboardWindow::DashboardWindow(const QString &email,
     ui->stackedPages->setCurrentWidget(ui->overviewPage);
     loadProductsToTable();
     loadTransactionsToTable();
-    loadUsersToTable();
-    loadSuppliersToTable();
 }
 
 DashboardWindow::~DashboardWindow()
@@ -163,42 +160,3 @@ void DashboardWindow::onProductsAdd()
 {
     openAddProductDialog();
 }
-
-void DashboardWindow::onStockIn()
-{
-    qDebug() << "Stock In requested";
-    // TODO: Implement StockIn dialog and update product quantity
-}
-
-void DashboardWindow::onStockOut()
-{
-    qDebug() << "Stock Out requested";
-    // TODO: Implement StockOut dialog and update product quantity
-}
-
-void DashboardWindow::onExportStockCsv()
-{
-    qDebug() << "Export stock CSV";
-    // TODO: Implement CSV export from products.json
-}
-
-void DashboardWindow::onExportTransactionsCsv()
-{
-    qDebug() << "Export transactions CSV";
-    // TODO: Implement CSV export from transactions.json
-}
-
-void DashboardWindow::loadUsersToTable()
-{
-    ui->usersTable->setRowCount(0);
-}
-
-void DashboardWindow::loadSuppliersToTable()
-{
-    ui->suppliersTable->setRowCount(0);
-}
-
-
-
-
-

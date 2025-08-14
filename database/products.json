@@ -1,18 +1,18 @@
 [
     {
-        "category": "Apparel",
-        "description": "kjhij",
+        "category": "Books",
+        "description": "hgfghj",
         "id": 1,
-        "name": "ball",
-        "price": 400,
-        "quantity": 443
+        "name": "hghjgjb",
+        "price": 555,
+        "quantity": 70
     },
     {
         "category": "Apparel",
-        "description": "jhgh",
+        "description": "bb",
         "id": 2,
-        "name": "hgjkl",
-        "price": 80000,
-        "quantity": 7
+        "name": "abc",
+        "price": 4000,
+        "quantity": 40
     }
 ]

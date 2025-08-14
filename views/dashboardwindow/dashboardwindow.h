@@ -39,30 +39,21 @@ private slots:
     void onProductsAdd();
     void onProductsEdit();
     void onProductsDelete();
-
-
-    // void onGenerateInvoiceClicked();
-    // void onExportTodaySalesClicked();
-    // void showTodaySales();
-    // Slot for updating product after editing in table
     void onProductsUpdate(int row, int column);
-
-    void onStockIn();
-    void onStockOut();
 
     void onExportStockCsv();
     void onExportTransactionsCsv();
-
-    // Transaction related slots
     void onSellProductClicked();
     void onSearchProductClicked();
     void onConfirmCheckoutClicked();
-    // void showTodaySales();
+    void loadTodaySalesToTable();
+
+
+    void onGenerateInvoiceClicked();
+    void onExportTodaySalesClicked();
 
     void loadProductsToTable();
     void loadTransactionsToTable();
-    void loadUsersToTable();
-    void loadSuppliersToTable();
 
 private:
     Ui::DashboardWindow *ui;

@@ -1,53 +1,12 @@
 # ninja log v6
-66	1467	7768617687505956	IMS_autogen/timestamp	69044b8a5efdb776
-66	1467	7768617687505956	IMS_autogen/mocs_compilation.cpp	69044b8a5efdb776
-66	1467	7768617687505956	C:/Users/Bibash Sharma/Desktop/Cpp/IMS/build/IMS_autogen/timestamp	69044b8a5efdb776
-1506	7738	7768617689281130	CMakeFiles/IMS.dir/views/loginwindow/loginwindow.cpp.obj	7b3e6d21db5ae524
-9357	10057	7768617767829728	IMS.exe	86292ed1c0dd74d5
-66	1467	7768617687505956	C:/Users/Bibash Sharma/Desktop/Cpp/IMS/build/IMS_autogen/mocs_compilation.cpp	69044b8a5efdb776
-1471	6910	7768617688956621	CMakeFiles/IMS.dir/IMS_autogen/mocs_compilation.cpp.obj	b383ad6e22a8274
-4937	14397	7768598297866122	CMakeFiles/IMS.dir/views/addproductdialog/addproductdialog.cpp.obj	5cff749a273eae11
-1483	6646	7768617689063549	CMakeFiles/IMS.dir/main.cpp.obj	4b0aa0d7472e68d6
-1492	9357	7768617689161014	CMakeFiles/IMS.dir/views/dashboardwindow/dashboardwindow.cpp.obj	ce207797359c7f81
 4927	13599	7768598297792697	CMakeFiles/IMS.dir/views/registrationwindow/registrationwindow.cpp.obj	9bc8070c51532bed
-61	452	7768620009963625	IMS_autogen/timestamp	69044b8a5efdb776
-61	452	7768620009963625	IMS_autogen/mocs_compilation.cpp	69044b8a5efdb776
-61	452	7768620009963625	C:/Users/Bibash Sharma/Desktop/Cpp/IMS/build/IMS_autogen/timestamp	69044b8a5efdb776
-61	452	7768620009963625	C:/Users/Bibash Sharma/Desktop/Cpp/IMS/build/IMS_autogen/mocs_compilation.cpp	69044b8a5efdb776
-108	586	7768620554910981	IMS_autogen/timestamp	69044b8a5efdb776
-108	586	7768620554910981	IMS_autogen/mocs_compilation.cpp	69044b8a5efdb776
-108	586	7768620554910981	C:/Users/Bibash Sharma/Desktop/Cpp/IMS/build/IMS_autogen/timestamp	69044b8a5efdb776
-108	586	7768620554910981	C:/Users/Bibash Sharma/Desktop/Cpp/IMS/build/IMS_autogen/mocs_compilation.cpp	69044b8a5efdb776
-588	6176	7768620559758425	CMakeFiles/IMS.dir/views/dashboardwindow/dashboardwindow.cpp.obj	ce207797359c7f81
-6176	6793	7768620615674768	IMS.exe	86292ed1c0dd74d5
-31	461	7768621528582390	IMS_autogen/timestamp	69044b8a5efdb776
-31	461	7768621528582390	IMS_autogen/mocs_compilation.cpp	69044b8a5efdb776
-31	461	7768621528582390	C:/Users/Bibash Sharma/Desktop/Cpp/IMS/build/IMS_autogen/timestamp	69044b8a5efdb776
-31	461	7768621528582390	C:/Users/Bibash Sharma/Desktop/Cpp/IMS/build/IMS_autogen/mocs_compilation.cpp	69044b8a5efdb776
-16	335	7768621882460308	IMS_autogen/timestamp	69044b8a5efdb776
-16	335	7768621882460308	IMS_autogen/mocs_compilation.cpp	69044b8a5efdb776
-16	335	7768621882460308	C:/Users/Bibash Sharma/Desktop/Cpp/IMS/build/IMS_autogen/timestamp	69044b8a5efdb776
-16	335	7768621882460308	C:/Users/Bibash Sharma/Desktop/Cpp/IMS/build/IMS_autogen/mocs_compilation.cpp	69044b8a5efdb776
-337	6196	7768621885674527	CMakeFiles/IMS.dir/views/dashboardwindow/dashboardwindow.cpp.obj	ce207797359c7f81
-6197	6839	7768621944277005	IMS.exe	86292ed1c0dd74d5
-25	3463	7768631839376378	IMS_autogen/timestamp	69044b8a5efdb776
-25	3463	7768631839376378	IMS_autogen/mocs_compilation.cpp	69044b8a5efdb776
-25	3463	7768631839376378	C:/Users/Bibash Sharma/Desktop/Cpp/IMS/build/IMS_autogen/timestamp	69044b8a5efdb776
-25	3463	7768631839376378	C:/Users/Bibash Sharma/Desktop/Cpp/IMS/build/IMS_autogen/mocs_compilation.cpp	69044b8a5efdb776
-3473	8801	7768631840680172	CMakeFiles/IMS.dir/main.cpp.obj	4b0aa0d7472e68d6
-3465	9050	7768631840534113	CMakeFiles/IMS.dir/IMS_autogen/mocs_compilation.cpp.obj	b383ad6e22a8274
-3495	10030	7768631840892101	CMakeFiles/IMS.dir/views/loginwindow/loginwindow.cpp.obj	7b3e6d21db5ae524
-3484	11405	7768631840781635	CMakeFiles/IMS.dir/views/dashboardwindow/dashboardwindow.cpp.obj	ce207797359c7f81
-78	1457	7768632432342715	IMS_autogen/timestamp	69044b8a5efdb776
-78	1457	7768632432342715	IMS_autogen/mocs_compilation.cpp	69044b8a5efdb776
-78	1457	7768632432342715	C:/Users/Bibash Sharma/Desktop/Cpp/IMS/build/IMS_autogen/timestamp	69044b8a5efdb776
-78	1457	7768632432342715	C:/Users/Bibash Sharma/Desktop/Cpp/IMS/build/IMS_autogen/mocs_compilation.cpp	69044b8a5efdb776
-1470	6343	7768632433724541	CMakeFiles/IMS.dir/main.cpp.obj	4b0aa0d7472e68d6
-1460	6896	7768632433596328	CMakeFiles/IMS.dir/IMS_autogen/mocs_compilation.cpp.obj	b383ad6e22a8274
-1488	7645	7768632433905870	CMakeFiles/IMS.dir/views/loginwindow/loginwindow.cpp.obj	7b3e6d21db5ae524
-62	364	7768632817666854	IMS_autogen/timestamp	69044b8a5efdb776
-62	364	7768632817666854	IMS_autogen/mocs_compilation.cpp	69044b8a5efdb776
-62	364	7768632817666854	C:/Users/Bibash Sharma/Desktop/Cpp/IMS/build/IMS_autogen/timestamp	69044b8a5efdb776
-62	364	7768632817666854	C:/Users/Bibash Sharma/Desktop/Cpp/IMS/build/IMS_autogen/mocs_compilation.cpp	69044b8a5efdb776
-365	5680	7768632820765079	CMakeFiles/IMS.dir/views/dashboardwindow/dashboardwindow.cpp.obj	ce207797359c7f81
-5680	6329	7768632873894677	IMS.exe	86292ed1c0dd74d5
+69	5129	7768739513995976	CMakeFiles/IMS.dir/views/dashboardwindow/dashboardwindow.cpp.obj	ce207797359c7f81
+423	3798	7768739435328279	CMakeFiles/IMS.dir/main.cpp.obj	4b0aa0d7472e68d6
+4552	12643	7768726684818857	CMakeFiles/IMS.dir/views/addproductdialog/addproductdialog.cpp.obj	5cff749a273eae11
+4508	11156	7768726684309411	CMakeFiles/IMS.dir/IMS_autogen/mocs_compilation.cpp.obj	b383ad6e22a8274
+30	421	7768739431546712	C:/Users/Bibash Sharma/Desktop/Cpp/IMS/build/IMS_autogen/mocs_compilation.cpp	69044b8a5efdb776
+5131	5832	7768739564740145	IMS.exe	86292ed1c0dd74d5
+4542	12135	7768726684735186	CMakeFiles/IMS.dir/views/loginwindow/loginwindow.cpp.obj	7b3e6d21db5ae524
+30	421	7768739431546712	C:/Users/Bibash Sharma/Desktop/Cpp/IMS/build/IMS_autogen/timestamp	69044b8a5efdb776
+30	421	7768739431546712	IMS_autogen/mocs_compilation.cpp	69044b8a5efdb776
+30	421	7768739431546712	IMS_autogen/timestamp	69044b8a5efdb776

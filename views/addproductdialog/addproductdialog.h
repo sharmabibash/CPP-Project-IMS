@@ -24,7 +24,7 @@ private slots:
 private:
     Ui::AddProductDialog *ui;
 
-    int calculateNextProductId();  // Add this declaration
+    int calculateNextProductId();  
 };
 
-#endif // ADDPRODUCTDIALOG_H
+#endif 

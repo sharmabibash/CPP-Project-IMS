@@ -259,7 +259,7 @@ public:
         stackedPages->setObjectName("stackedPages");
         overviewPage = new QWidget();
         overviewPage->setObjectName("overviewPage");
-        overviewPage->setStyleSheet(QString::fromUtf8("background-color: #071625ff; border-radius: 10px; margin: 10px; padding: 20px;"));
+        overviewPage->setStyleSheet(QString::fromUtf8("background-color: #071625ff; border-radius: 10px; margin: 10px; padding: 20px;font-size:20px;"));
         overviewLayout = new QVBoxLayout(overviewPage);
         overviewLayout->setObjectName("overviewLayout");
         overviewLabel = new QLabel(overviewPage);
