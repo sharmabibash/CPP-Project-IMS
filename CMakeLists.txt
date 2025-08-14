@@ -9,13 +9,14 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTORCC ON)
 
-# Find Qt6 packages
+# Find Qt6 packages (added PrintSupport)
 find_package(Qt6 REQUIRED COMPONENTS 
     Widgets
     Core
+    PrintSupport
 )
 
-# Source files - adjusted to match your actual structure
+# Source files
 set(SOURCES
     main.cpp
     views/dashboardwindow/dashboardwindow.cpp
@@ -47,7 +48,7 @@ add_executable(${PROJECT_NAME}
     ${UIS}
 )
 
-# Include directories - adjusted paths
+# Include directories
 target_include_directories(${PROJECT_NAME} PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}
     ${CMAKE_CURRENT_SOURCE_DIR}/views
@@ -57,8 +58,9 @@ target_include_directories(${PROJECT_NAME} PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/views/addproductdialog
 )
 
-# Link libraries
+# Link libraries (added Qt6::PrintSupport)
 target_link_libraries(${PROJECT_NAME} PRIVATE
     Qt6::Widgets
     Qt6::Core
+    Qt6::PrintSupport
 )

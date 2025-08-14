@@ -20,7 +20,6 @@ void DashboardWindow::onProductsSearch()
     qDebug() << "Search products for:" << term;
 
     QJsonArray products = readProductsFromFile();
-
     ui->productsTable->setRowCount(0);
 
     int row = 0;
@@ -31,12 +30,23 @@ void DashboardWindow::onProductsSearch()
 
         if (term.isEmpty() || name.contains(term) || description.contains(term)) {
             ui->productsTable->insertRow(row);
-            ui->productsTable->setItem(row, 0, new QTableWidgetItem(QString::number(product["id"].toInt())));
-            ui->productsTable->setItem(row, 1, new QTableWidgetItem(product["name"].toString()));
-            ui->productsTable->setItem(row, 2, new QTableWidgetItem(product["category"].toString()));
-            ui->productsTable->setItem(row, 3, new QTableWidgetItem(QString::number(product["quantity"].toInt())));
-            ui->productsTable->setItem(row, 4, new QTableWidgetItem(QString::number(product["price"].toDouble(), 'f', 2)));
-            ui->productsTable->setItem(row, 5, new QTableWidgetItem(product["description"].toString()));
+
+            ui->productsTable->setItem(row, 0,
+                new QTableWidgetItem(QString::number(product["id"].toInt())));
+
+            ui->productsTable->setItem(row, 1,
+                new QTableWidgetItem(product["name"].toString()));
+
+            ui->productsTable->setItem(row, 2,
+                new QTableWidgetItem(product["description"].toString()));
+
+            ui->productsTable->setItem(row, 3,
+                new QTableWidgetItem(QString::number(product["price"].toDouble(), 'f', 2)));
+
+            QTableWidgetItem *qtyItem = new QTableWidgetItem();
+            qtyItem->setData(Qt::DisplayRole, product["quantity"].toInt());
+            ui->productsTable->setItem(row, 4, qtyItem);
+
             row++;
         }
     }

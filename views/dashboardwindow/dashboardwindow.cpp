@@ -1,3 +1,7 @@
+#include <QPrinter>
+#include <QPainter>
+#include <QFileDialog>
+#include <QTextDocument>
 #include "dashboardwindow.h"
 #include "ui_dashboardwindow.h"
 #include "../loginwindow/loginwindow.h"
@@ -20,43 +24,38 @@
 #include "../functions/actions/onproduct_delete.cpp"
 #include "../functions/read_write/readproduct.cpp"
 #include "../functions/read_write/writeproduct.cpp"
+#include "../functions/transactions/load_transactions.cpp"
 
 DashboardWindow::DashboardWindow(const QString &email,
                                  const QString &companyName,
                                  const QString &mobile,
                                  const QString &regNo,
-                                 QWidget *parent) :
-    QMainWindow(parent),
-    ui(new Ui::DashboardWindow),
-    userEmail(email),
-    companyName(companyName),
-    mobile(mobile),
-    regNo(regNo)
+                                 QWidget *parent) : QMainWindow(parent),
+                                                    ui(new Ui::DashboardWindow),
+                                                    userEmail(email),
+                                                    companyName(companyName),
+                                                    mobile(mobile),
+                                                    regNo(regNo)
 {
     ui->setupUi(this);
-
-    // Setup window title
     QString title = "Inventory Dashboard";
-    if (!companyName.isEmpty()) {
+    if (!companyName.isEmpty())
+    {
         title = companyName + " - " + title;
     }
     setWindowTitle(title);
-
-    // Setup welcome message
     QString welcomeMsg = "Welcome to IMS Dashboard";
-    if (!companyName.isEmpty()) {
+    if (!companyName.isEmpty())
+    {
         welcomeMsg = QString("Welcome to %1's IMS Dashboard").arg(companyName);
     }
     ui->headerTitle->setText(welcomeMsg);
-
-    // Enable editing on products table except ID column
     ui->productsTable->setEditTriggers(QAbstractItemView::DoubleClicked | QAbstractItemView::SelectedClicked);
-    ui->productsTable->setItemDelegateForColumn(0, nullptr); // No editing for ID column
-
-    // Create AddProductDialog instance
+    ui->productsTable->setItemDelegateForColumn(0, nullptr);
     addProductDialog = new AddProductDialog(this);
-
-    // Connect signals
+    connect(ui->sellProductButton, &QPushButton::clicked, this, &DashboardWindow::onSellProductClicked);
+    connect(ui->searchProductButton, &QPushButton::clicked, this, &DashboardWindow::onSearchProductClicked);
+    connect(ui->checkoutConfirmButton, &QPushButton::clicked, this, &DashboardWindow::onConfirmCheckoutClicked);
     connect(ui->loginButton, &QPushButton::clicked, this, &DashboardWindow::handleLogin);
     connect(ui->addProductButton, &QPushButton::clicked, this, &DashboardWindow::openAddProductDialog);
     connect(ui->productsAddButton, &QPushButton::clicked, this, &DashboardWindow::onProductsAdd);
@@ -64,64 +63,80 @@ DashboardWindow::DashboardWindow(const QString &email,
     connect(ui->productsDeleteButton, &QPushButton::clicked, this, &DashboardWindow::onProductsDelete);
     connect(ui->productsSearchButton, &QPushButton::clicked, this, &DashboardWindow::onProductsSearch);
     connect(ui->productsSearch, &QLineEdit::returnPressed, this, &DashboardWindow::onProductsSearch);
-
-    // Connect AddProductDialog signal to slot
     connect(addProductDialog, &AddProductDialog::productAdded, this, &DashboardWindow::onProductAdded);
-// Set header height
-// Set header height
-ui->productsTable->horizontalHeader()->setFixedHeight(70);
 
-// Disable stretching to keep column widths fixed
-ui->productsTable->horizontalHeader()->setSectionResizeMode(QHeaderView::Fixed);
-
-// Set column widths (indices 0-4)
-ui->productsTable->setColumnWidth(0, 50);   // ID
-ui->productsTable->setColumnWidth(1, 150);  // Name
-ui->productsTable->setColumnWidth(2, 300);  // Description
-ui->productsTable->setColumnWidth(3, 200);  // Price
-ui->productsTable->setColumnWidth(4, 150);  // Quantity
-
-// Center-align header text
-ui->productsTable->horizontalHeader()->setDefaultAlignment(Qt::AlignCenter);
-
-// Center-align all cell content
-for (int row = 0; row < ui->productsTable->rowCount(); ++row) {
-    for (int col = 0; col < ui->productsTable->columnCount(); ++col) {
-        QTableWidgetItem* item = ui->productsTable->item(row, col);
-        if (!item) {
-            item = new QTableWidgetItem();
-            ui->productsTable->setItem(row, col, item);
-        }
-        item->setTextAlignment(Qt::AlignCenter);
-    }
-}
-
-// Optional: Disable word wrapping if text should stay in one line
-ui->productsTable->setWordWrap(false);
-
-
-    // Connect navigation buttons
-    connect(ui->productsButton, &QPushButton::clicked, this, &DashboardWindow::showProductsPage);
-    connect(ui->transactionsButton, &QPushButton::clicked, this, &DashboardWindow::showTransactionsPage);
-    connect(ui->usersButton, &QPushButton::clicked, this, &DashboardWindow::showUsersPage);
-    connect(ui->reportsButtonSidebar, &QPushButton::clicked, this, &DashboardWindow::showReportsPage);
-    connect(ui->suppliersButton, &QPushButton::clicked, this, &DashboardWindow::showSuppliersPage);
-
-    // Transactions buttons
-    connect(ui->stockInButton, &QPushButton::clicked, this, &DashboardWindow::onStockIn);
-    connect(ui->stockOutButton, &QPushButton::clicked, this, &DashboardWindow::onStockOut);
-
-    // Report exports
     connect(ui->exportStockCsv, &QPushButton::clicked, this, &DashboardWindow::onExportStockCsv);
     connect(ui->exportTransactionsCsv, &QPushButton::clicked, this, &DashboardWindow::onExportTransactionsCsv);
+    // connect(ui->reportsButtonSidebar, &QPushButton::clicked, this, &DashboardWindow::showTodaySales);
 
-    // Connect cellChanged signal for updating product on edit
+    ui->productsTable->horizontalHeader()->setFixedHeight(70);
+    ui->productsTable->horizontalHeader()->setSectionResizeMode(QHeaderView::Fixed);
+    ui->productsTable->setColumnWidth(0, 50);  // ID
+    ui->productsTable->setColumnWidth(1, 150); // Name
+    ui->productsTable->setColumnWidth(2, 300); // Description
+    ui->productsTable->setColumnWidth(3, 200); // Price
+    ui->productsTable->setColumnWidth(4, 150); // Quantity
+    ui->productsTable->horizontalHeader()->setDefaultAlignment(Qt::AlignCenter);
+
+    for (int row = 0; row < ui->productsTable->rowCount(); ++row)
+    {
+        for (int col = 0; col < ui->productsTable->columnCount(); ++col)
+        {
+            QTableWidgetItem *item = ui->productsTable->item(row, col);
+            if (!item)
+            {
+                item = new QTableWidgetItem();
+                ui->productsTable->setItem(row, col, item);
+            }
+            item->setTextAlignment(Qt::AlignCenter);
+        }
+    }
+
+    ui->productsTable->setWordWrap(false);
+
+    connect(ui->productsButton, &QPushButton::clicked, this, &DashboardWindow::showProductsPage);
+    connect(ui->transactionsButton, &QPushButton::clicked, this, &DashboardWindow::showTransactionsPage);
+    connect(ui->reportsButtonSidebar, &QPushButton::clicked, this, &DashboardWindow::showReportsPage);
+    connect(ui->exportStockCsv, &QPushButton::clicked, this, &DashboardWindow::onExportStockCsv);
+    connect(ui->exportTransactionsCsv, &QPushButton::clicked, this, &DashboardWindow::onExportTransactionsCsv);
     connect(ui->productsTable, &QTableWidget::cellChanged, this, &DashboardWindow::onProductsUpdate);
+// connect(ui->generateInvoiceButton, &QPushButton::clicked, this, &DashboardWindow::onGenerateInvoiceClicked);
+    // connect(ui->exportTodaySalesButton, &QPushButton::clicked, this, &DashboardWindow::onExportTodaySalesClicked);
+    // connect(ui->reportsButtonSidebar, &QPushButton::clicked, this, &DashboardWindow::showTodaySales);
+    // Set header alignment and style
+    ui->productsTable->horizontalHeader()->setStyleSheet(
+        "QHeaderView::section {"
+        "background-color: #26bfdaff;"
+        "color: white;"
+        "font-weight: bold;"
+        "padding: 5px;"
+        "border: 1px solid #fff;"
+        "}");
+    for (int row = 0; row < ui->productsTable->rowCount(); ++row)
+    {
+        for (int col = 0; col < ui->productsTable->columnCount(); ++col)
+        {
+            QTableWidgetItem *item = ui->productsTable->item(row, col);
+            if (!item)
+            {
+                item = new QTableWidgetItem();
+                ui->productsTable->setItem(row, col, item);
+            }
+            item->setTextAlignment(Qt::AlignLeft | Qt::AlignVCenter);
+        }
+    }
+    ui->productsTable->setStyleSheet(
+        "QTableWidget {"
+        "gridline-color: #ffffff;"
+        "background-color: #0b2b4bff;"
+        "alternate-background-color: #e9ecef;"
+        "}"
+        "QTableWidget::item {"
+        "padding: 5px;"
+        "border: 1px solid #dee2e6;"
+        "}");
 
-    // Start on overview page
     ui->stackedPages->setCurrentWidget(ui->overviewPage);
-
-    // Load data
     loadProductsToTable();
     loadTransactionsToTable();
     loadUsersToTable();
@@ -133,21 +148,21 @@ DashboardWindow::~DashboardWindow()
     delete ui;
 }
 void DashboardWindow::showOverviewPage() { ui->stackedPages->setCurrentWidget(ui->overviewPage); }
-void DashboardWindow::showProductsPage() {
+void DashboardWindow::showProductsPage()
+{
     ui->stackedPages->setCurrentWidget(ui->productsPage);
     loadProductsToTable();
 }
+
 void DashboardWindow::showTransactionsPage() { ui->stackedPages->setCurrentWidget(ui->transactionsPage); }
 void DashboardWindow::showUsersPage() { ui->stackedPages->setCurrentWidget(ui->usersPage); }
 void DashboardWindow::showReportsPage() { ui->stackedPages->setCurrentWidget(ui->reportsPage); }
 void DashboardWindow::showSuppliersPage() { ui->stackedPages->setCurrentWidget(ui->suppliersPage); }
 
-
 void DashboardWindow::onProductsAdd()
 {
     openAddProductDialog();
 }
-
 
 void DashboardWindow::onStockIn()
 {
@@ -173,12 +188,6 @@ void DashboardWindow::onExportTransactionsCsv()
     // TODO: Implement CSV export from transactions.json
 }
 
-
-void DashboardWindow::loadTransactionsToTable()
-{
-    ui->transactionsTable->setRowCount(0);
-}
-
 void DashboardWindow::loadUsersToTable()
 {
     ui->usersTable->setRowCount(0);
@@ -188,3 +197,8 @@ void DashboardWindow::loadSuppliersToTable()
 {
     ui->suppliersTable->setRowCount(0);
 }
+
+
+
+
+

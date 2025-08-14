@@ -36,7 +36,7 @@ void DashboardWindow::onProductsUpdate(int row, int column)
             QString newValue = editedItem->text();
 
             switch (column) {
-                case 1: // Name
+                case 1:
                     if (newValue.isEmpty()) {
                         errorMessage = "Name cannot be empty";
                         break;
@@ -44,11 +44,11 @@ void DashboardWindow::onProductsUpdate(int row, int column)
                     product["name"] = newValue;
                     break;
 
-                case 2: // Description
+                case 2: 
                     product["description"] = newValue;
                     break;
 
-                case 3: // Price
+                case 3: 
                 {
                     double price = newValue.toDouble(&conversionOk);
                     if (!conversionOk || price < 0) {
@@ -59,7 +59,7 @@ void DashboardWindow::onProductsUpdate(int row, int column)
                     break;
                 }
 
-                case 4: // Quantity
+                case 4: 
                 {
                     int quantity = newValue.toInt(&conversionOk);
                     if (!conversionOk || quantity < 0) {
@@ -77,7 +77,7 @@ void DashboardWindow::onProductsUpdate(int row, int column)
 
             if (!errorMessage.isEmpty()) {
                 QMessageBox::warning(this, "Invalid Input", errorMessage);
-                loadProductsToTable(); // Revert changes
+                loadProductsToTable(); 
                 return;
             }
 

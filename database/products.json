@@ -1,26 +1,18 @@
 [
     {
-        "category": "55",
-        "description": "bibash sharma from pulchowk campus lalitpur",
+        "category": "Apparel",
+        "description": "kjhij",
         "id": 1,
         "name": "ball",
-        "price": 200,
-        "quantity": 7
+        "price": 400,
+        "quantity": 443
     },
     {
-        "category": "Electronics",
-        "description": "hghjg",
+        "category": "Apparel",
+        "description": "jhgh",
         "id": 2,
-        "name": "apple",
-        "price": 4000,
-        "quantity": 4
-    },
-    {
-        "category": "Electronics",
-        "description": "gjhk",
-        "id": 3,
-        "name": "fghjk",
-        "price": 1000,
-        "quantity": 1
+        "name": "hgjkl",
+        "price": 80000,
+        "quantity": 7
     }
 ]

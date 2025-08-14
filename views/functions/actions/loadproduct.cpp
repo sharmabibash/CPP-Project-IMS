@@ -22,28 +22,22 @@ void DashboardWindow::loadProductsToTable()
     for (const auto &prodVal : products) {
         QJsonObject product = prodVal.toObject();
         ui->productsTable->insertRow(row);
-        
-        // ID column (0)
+   
         ui->productsTable->setItem(row, 0, new QTableWidgetItem(QString::number(product["id"].toInt())));
-        
-        // Name column (1)
+   
         ui->productsTable->setItem(row, 1, new QTableWidgetItem(product["name"].toString()));
-        
-        // Description column (2)
+ 
         ui->productsTable->setItem(row, 2, new QTableWidgetItem(product["description"].toString()));
-        
-        // Price column (3)
+   
         ui->productsTable->setItem(row, 3, new QTableWidgetItem(QString::number(product["price"].toDouble(), 'f', 2)));
-        
-        // Quantity column (4) - with validation
-        int quantity = product["quantity"].toInt(); // Force integer conversion
+
+        int quantity = product["quantity"].toInt(); 
         QTableWidgetItem *qtyItem = new QTableWidgetItem();
-        qtyItem->setData(Qt::DisplayRole, quantity); // Store as integer
+        qtyItem->setData(Qt::DisplayRole, quantity); 
         ui->productsTable->setItem(row, 4, qtyItem);
         
         row++;
     }
-    
-    // Update the overview with total products count
+
     ui->card1Value->setText(QString::number(products.size()));
 }

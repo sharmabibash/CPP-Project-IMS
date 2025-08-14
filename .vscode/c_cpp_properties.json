@@ -13,7 +13,8 @@
                 "C:/Qt/6.9.1/mingw_64/include/QtWidgets/QApplication",
                 "${workspaceFolder}/views/dashboardwindow",
                 "${workspaceFolder}/build/IMS_autogen/include",
-                "${workspaceFolder}/views/addproductdialog"
+                "${workspaceFolder}/views/addproductdialog",
+                "C:/Qt/6.9.1/mingw_64/include/QtPrintSupport"
             ],
             "compilerPath": "C:/mingw64/bin/g++.exe",
             "cStandard": "gnu17",

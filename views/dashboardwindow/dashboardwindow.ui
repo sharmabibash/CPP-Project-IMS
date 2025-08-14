@@ -22,7 +22,7 @@
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QHBoxLayout" name="mainLayout">
-    <!-- Sidebar (left) -->
+    <!-- Sidebar -->
     <item>
      <widget class="QWidget" name="sidebar" native="true">
       <property name="styleSheet">
@@ -67,43 +67,13 @@
         </widget>
        </item>
 
-       <!-- New navigation buttons -->
-       <item>
-        <widget class="QPushButton" name="productsButton">
-         <property name="text"><string>📦 Products</string></property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="transactionsButton">
-         <property name="text"><string>🔁 Transactions</string></property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="reportsButtonSidebar">
-         <property name="text"><string>📊 Reports</string></property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="suppliersButton">
-         <property name="text"><string>🏷 Suppliers And Customers</string></property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="usersButton">
-         <property name="text"><string>👥 Users</string></property>
-        </widget>
-       </item>
+       <item><widget class="QPushButton" name="productsButton"><property name="text"><string>📦 Products</string></property></widget></item>
+       <item><widget class="QPushButton" name="transactionsButton"><property name="text"><string>🔁 Transactions</string></property></widget></item>
+       <item><widget class="QPushButton" name="reportsButtonSidebar"><property name="text"><string>📊 Reports</string></property></widget></item>
 
-       <item>
-        <spacer name="sidebarSpacer">
-         <property name="orientation"><enum>Qt::Vertical</enum></property>
-        </spacer>
-       </item>
-       <item>
-        <widget class="QPushButton" name="addProductButton">
-         <property name="text"><string>➕ Add Product</string></property>
-        </widget>
-       </item>
+       <item><spacer name="sidebarSpacer"><property name="orientation"><enum>Qt::Vertical</enum></property></spacer></item>
+
+       <item><widget class="QPushButton" name="addProductButton"><property name="text"><string>➕ Add Product</string></property></widget></item>
        <item>
         <widget class="QPushButton" name="loginButton">
          <property name="text"><string>🔐 Logout</string></property>
@@ -124,15 +94,15 @@
          </property>
         </widget>
        </item>
-
       </layout>
      </widget>
     </item>
 
-    <!-- Content area (right) -->
+    <!-- Content Area -->
     <item>
      <widget class="QWidget" name="contentArea" native="true">
       <layout class="QVBoxLayout" name="contentLayout">
+       
        <!-- Header -->
        <item>
         <widget class="QWidget" name="header" native="true">
@@ -144,226 +114,374 @@
           </string>
          </property>
          <layout class="QHBoxLayout" name="headerLayout">
-          <item>
-           <widget class="QLabel" name="headerTitle">
-            <property name="text"><string>Welcome to IMS Dashboard</string></property>
-            <property name="styleSheet">
-             <string notr="true">font-size: 24px; font-weight: bold; color: #fdfdfdff;</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <spacer name="headerSpacer">
-            <property name="orientation"><enum>Qt::Horizontal</enum></property>
-           </spacer>
-          </item>
+          <item><widget class="QLabel" name="headerTitle"><property name="text"><string>Welcome to IMS Dashboard</string></property><property name="styleSheet"><string notr="true">font-size: 24px; font-weight: bold; color: #fdfdfdff;</string></property></widget></item>
+          <item><spacer name="headerSpacer"><property name="orientation"><enum>Qt::Horizontal</enum></property></spacer></item>
          </layout>
         </widget>
        </item>
 
-       <!-- Stacked widget for pages -->
+       <!-- Pages -->
        <item>
         <widget class="QStackedWidget" name="stackedPages">
-         <!-- Dashboard overview page index 0 (existing overview content) -->
+
+         <!-- Overview Page -->
          <widget class="QWidget" name="overviewPage">
-          <property name="styleSheet"><string notr="true">background-color: white; border-radius: 10px; margin: 10px; padding: 20px;</string></property>
+          <property name="styleSheet"><string notr="true">background-color: #071625ff; border-radius: 10px; margin: 10px; padding: 20px;</string></property>
           <layout class="QVBoxLayout" name="overviewLayout">
-           <item>
-            <widget class="QLabel" name="overviewLabel"><property name="text"><string>Overview</string></property></widget>
-           </item>
+           <item><widget class="QLabel" name="overviewLabel"><property name="text"><string>Overview</string></property></widget></item>
            <item>
             <widget class="QWidget" name="overviewCards">
              <layout class="QGridLayout" name="overviewGrid">
               <item row="0" column="0">
-               <widget class="QWidget" name="card1"><property name="styleSheet"><string notr="true">background-color: #3498db; border-radius: 8px; padding: 15px; color: white;</string></property>
+               <widget class="QWidget" name="card1"><property name="styleSheet"><string notr="true">background-color: #3498db; border-radius: 8px; padding: 15px; color: white; font-size:20px;</string></property>
                 <layout class="QVBoxLayout">
-                 <item><widget class="QLabel" name="card1Title"><property name="text"><string>Total Items</string></property></widget></item>
+                 <item><widget class="QLabel" name="card1Title"><property name="text"><string>Total Items Available In The Stocks</string></property></widget></item>
                  <item><widget class="QLabel" name="card1Value"><property name="text"><string>1,234</string></property></widget></item>
                 </layout>
                </widget>
               </item>
-              <item row="0" column="1">
-               <widget class="QWidget" name="card2"><property name="styleSheet"><string notr="true">background-color: #e74c3c; border-radius: 8px; padding: 15px; color: white;</string></property>
-                <layout class="QVBoxLayout">
-                 <item><widget class="QLabel" name="card2Title"><property name="text"><string>Low Stock</string></property></widget></item>
-                 <item><widget class="QLabel" name="card2Value"><property name="text"><string>45</string></property></widget></item>
-                </layout>
-               </widget>
-              </item>
              </layout>
             </widget>
            </item>
           </layout>
          </widget>
 
-         <!-- Products page index 1 -->
-     <!-- Products page index 1 -->
-<!-- Products page index 1 -->
-<widget class="QWidget" name="productsPage">
-  <property name="styleSheet"><string notr="true">background-color: #071625ff; border-radius: 10px; margin: 10px; padding: 10px;</string></property>
+
+<!-- Reports Page -->
+<widget class="QWidget" name="reportsPage">
+  <property name="styleSheet">
+    <string notr="true">background-color: #071625ff; border-radius: 10px; margin: 10px; padding: 10px;</string>
+  </property>
   <layout class="QVBoxLayout">
     <item>
-      <widget class="QWidget" name="productsToolbar">
+      <widget class="QWidget" name="reportsToolbar">
         <layout class="QHBoxLayout">
-          <item><widget class="QLineEdit" name="productsSearch"><property name="placeholderText"><string>Search products...</string></property></widget></item>
-          <item><widget class="QPushButton" name="productsSearchButton"><property name="text"><string>Search</string></property></widget></item>
-          <item><spacer name="productsSpacer"/></item>
-          <item><widget class="QPushButton" name="productsAddButton"><property name="text"><string>➕ Add</string></property></widget></item>
-          <item><widget class="QPushButton" name="productsEditButton"><property name="text"><string>✏️ Edit</string></property></widget></item>
-          <item><widget class="QPushButton" name="productsDeleteButton"><property name="text"><string>🗑 Delete</string></property></widget></item>
+          <item>
+            <widget class="QPushButton" name="generateInvoiceButton">
+              <property name="text">
+                <string>📄 Generate Invoice (PDF)</string>
+              </property>
+              <property name="styleSheet">
+                <string notr="true">
+                  QPushButton {
+                    background-color: #e74c3c;
+                    color: white;
+                    padding: 8px;
+                    border-radius: 5px;
+                  }
+                  QPushButton:hover {
+                    background-color: #c0392b;
+                  }
+                </string>
+              </property>
+            </widget>
+          </item>
+          <item>
+            <widget class="QPushButton" name="exportTodaySalesButton">
+              <property name="text">
+                <string>📊 Today's Sales (CSV)</string>
+              </property>
+              <property name="styleSheet">
+                <string notr="true">
+                  QPushButton {
+                    background-color: #2ecc71;
+                    color: white;
+                    padding: 8px;
+                    border-radius: 5px;
+                  }
+                  QPushButton:hover {
+                    background-color: #27ae60;
+                  }
+                </string>
+              </property>
+            </widget>
+          </item>
+          <item>
+            <widget class="QPushButton" name="exportStockCsv">
+              <property name="text">
+                <string>📦 Export Stock (CSV)</string>
+              </property>
+              <property name="styleSheet">
+                <string notr="true">
+                  QPushButton {
+                    background-color: #3498db;
+                    color: white;
+                    padding: 8px;
+                    border-radius: 5px;
+                  }
+                  QPushButton:hover {
+                    background-color: #2980b9;
+                  }
+                </string>
+              </property>
+            </widget>
+          </item>
+          <item>
+            <widget class="QPushButton" name="exportTransactionsCsv">
+              <property name="text">
+                <string>🔁 Export Transactions (CSV)</string>
+              </property>
+              <property name="styleSheet">
+                <string notr="true">
+                  QPushButton {
+                    background-color: #9b59b6;
+                    color: white;
+                    padding: 8px;
+                    border-radius: 5px;
+                  }
+                  QPushButton:hover {
+                    background-color: #8e44ad;
+                  }
+                </string>
+              </property>
+            </widget>
+          </item>
+          <item>
+            <spacer name="reportsSpacer"/>
+          </item>
         </layout>
       </widget>
     </item>
     <item>
-      <widget class="QTableWidget" name="productsTable">
-        <property name="columnCount"><number>5</number></property>
-        <property name="styleSheet">
-  <string notr="true">
-    QTableWidget {
-        background-color: #071625ff;
-        border: 1px solid #ddd;
-        gridline-color: #eee;
-        padding: 18px;
-    }
-    QHeaderView::section {
-        background-color: #3498db;
-        color: white;
-        padding: 8px;
-        border: none;
-        font-weight: bold;
-        font-size: 14px;
-        
-        
-    }
-  </string>
-</property>
-
-        <column>
-          <property name="text"><string>ID</string></property>
-        </column>
-        <column>
-          <property name="text"><string>Name</string></property>
-        </column>
-        <column>
-          <property name="text"><string>Description</string></property>
-        </column>
-        <column>
-          <property name="text"><string>Price</string></property>
-        </column>
-        <column>
-          <property name="text"><string>Quantity</string></property>
-        </column>
+      <widget class="QWidget" name="reportsContent">
+        <layout class="QVBoxLayout">
+          <item>
+            <widget class="QLabel" name="reportsPlaceholder">
+              <property name="text">
+                <string>Choose report options to view or export.</string>
+              </property>
+              <property name="alignment">
+                <set>Qt::AlignCenter</set>
+              </property>
+              <property name="styleSheet">
+                <string notr="true">
+                  color: white;
+                  font-size: 16px;
+                  padding: 20px;
+                </string>
+              </property>
+            </widget>
+          </item>
+          <item>
+            <widget class="QTableWidget" name="todaySalesTable">
+              <property name="columnCount">
+                <number>4</number>
+              </property>
+              <column>
+                <property name="text">
+                  <string>Time</string>
+                </property>
+              </column>
+              <column>
+                <property name="text">
+                  <string>Customer</string>
+                </property>
+              </column>
+              <column>
+                <property name="text">
+                  <string>Product</string>
+                </property>
+              </column>
+              <column>
+                <property name="text">
+                  <string>Amount</string>
+                </property>
+              </column>
+              <property name="styleSheet">
+                <string notr="true">
+                  QTableWidget {
+                    background-color: #0b2b4bff;
+                    gridline-color: #ffffff;
+                    color: white;
+                  }
+                  QHeaderView::section {
+                    background-color: #26bfdaff;
+                    color: white;
+                    font-weight: bold;
+                    padding: 5px;
+                    border: 1px solid #fff;
+                  }
+                </string>
+              </property>
+            </widget>
+          </item>
+        </layout>
       </widget>
     </item>
   </layout>
 </widget>
-         <!-- Transactions page index 2 -->
-         <widget class="QWidget" name="transactionsPage">
-          <property name="styleSheet"><string notr="true">background-color: white; border-radius: 10px; margin: 10px; padding: 10px;</string></property>
-          <layout class="QVBoxLayout">
-           <item>
-            <widget class="QWidget" name="transactionsToolbar">
-             <layout class="QHBoxLayout">
-              <item><widget class="QPushButton" name="stockInButton"><property name="text"><string>Stock In</string></property></widget></item>
-              <item><widget class="QPushButton" name="stockOutButton"><property name="text"><string>Stock Out</string></property></widget></item>
-              <item><spacer name="transSpacer"/></item>
-              <item><widget class="QLineEdit" name="transFilter"><property name="placeholderText"><string>Filter by product/date/type...</string></property></widget></item>
-              <item><widget class="QPushButton" name="transFilterButton"><property name="text"><string>Filter</string></property></widget></item>
-             </layout>
-            </widget>
-           </item>
-           <item>
-            <widget class="QTableWidget" name="transactionsTable">
-             <property name="columnCount"><number>6</number></property>
-             <column><property name="text"><string>Date</string></property></column>
-             <column><property name="text"><string>Type</string></property></column>
-             <column><property name="text"><string>Product</string></property></column>
-             <column><property name="text"><string>Qty</string></property></column>
-             <column><property name="text"><string>User</string></property></column>
-             <column><property name="text"><string>Note</string></property></column>
-            </widget>
-           </item>
-          </layout>
-         </widget>
 
-         <!-- Users page index 3 -->
-         <widget class="QWidget" name="usersPage">
-          <property name="styleSheet"><string notr="true">background-color: white; border-radius: 10px; margin: 10px; padding: 10px;</string></property>
+         <!-- Products Page -->
+         <widget class="QWidget" name="productsPage">
+          <property name="styleSheet"><string notr="true">background-color: #071625ff; border-radius: 10px; margin: 10px; padding: 10px;</string></property>
           <layout class="QVBoxLayout">
            <item>
-            <widget class="QWidget" name="usersToolbar">
+            <widget class="QWidget" name="productsToolbar">
              <layout class="QHBoxLayout">
-              <item><widget class="QPushButton" name="usersAddButton"><property name="text"><string>Add User</string></property></widget></item>
-              <item><widget class="QPushButton" name="usersEditButton"><property name="text"><string>Edit User</string></property></widget></item>
-              <item><widget class="QPushButton" name="usersDeleteButton"><property name="text"><string>Delete User</string></property></widget></item>
-              <item><spacer name="usersSpacer"/></item>
+              <item><widget class="QLineEdit" name="productsSearch"><property name="placeholderText"><string>Search products...</string></property></widget></item>
+              <item><widget class="QPushButton" name="productsSearchButton"><property name="text"><string>Search</string></property></widget></item>
+              <item><spacer name="productsSpacer"/></item>
+              <item><widget class="QPushButton" name="productsAddButton"><property name="text"><string>➕ Add</string></property></widget></item>
+              <item><widget class="QPushButton" name="productsEditButton"><property name="text"><string>✏️ Edit</string></property></widget></item>
+              <item><widget class="QPushButton" name="productsDeleteButton"><property name="text"><string>🗑 Delete</string></property></widget></item>
              </layout>
             </widget>
            </item>
            <item>
-            <widget class="QTableWidget" name="usersTable">
-             <property name="columnCount"><number>4</number></property>
-             <column><property name="text"><string>Username</string></property></column>
-             <column><property name="text"><string>Role</string></property></column>
-             <column><property name="text"><string>Last Login</string></property></column>
-             <column><property name="text"><string>Actions</string></property></column>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-
-         <!-- Reports page index 4 -->
-         <widget class="QWidget" name="reportsPage">
-          <property name="styleSheet"><string notr="true">background-color: white; border-radius: 10px; margin: 10px; padding: 10px;</string></property>
-          <layout class="QVBoxLayout">
-           <item>
-            <widget class="QWidget" name="reportsToolbar">
-             <layout class="QHBoxLayout">
-              <item><widget class="QPushButton" name="exportStockCsv"><property name="text"><string>Export Stock CSV</string></property></widget></item>
-              <item><widget class="QPushButton" name="exportTransactionsCsv"><property name="text"><string>Export Transactions CSV</string></property></widget></item>
-              <item><spacer name="reportsSpacer"/></item>
-             </layout>
-            </widget>
-           </item>
-           <item>
-            <widget class="QWidget" name="reportsContent">
-             <layout class="QVBoxLayout">
-              <item><widget class="QLabel" name="reportsPlaceholder"><property name="text"><string>Choose report options to view or export.</string></property></widget></item>
-             </layout>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-
-         <!-- Suppliers/Customers page index 5 -->
-         <widget class="QWidget" name="suppliersPage">
-          <property name="styleSheet"><string notr="true">background-color: white; border-radius: 10px; margin: 10px; padding: 10px;</string></property>
-          <layout class="QVBoxLayout">
-           <item>
-            <widget class="QWidget" name="suppliersToolbar">
-             <layout class="QHBoxLayout">
-              <item><widget class="QPushButton" name="suppliersAddButton"><property name="text"><string>Add Supplier</string></property></widget></item>
-              <item><widget class="QPushButton" name="customersAddButton"><property name="text"><string>Add Customer</string></property></widget></item>
-              <item><spacer name="suppliersSpacer"/></item>
-             </layout>
-            </widget>
-           </item>
-           <item>
-            <widget class="QTableWidget" name="suppliersTable">
+            <widget class="QTableWidget" name="productsTable">
              <property name="columnCount"><number>5</number></property>
              <column><property name="text"><string>ID</string></property></column>
              <column><property name="text"><string>Name</string></property></column>
-             <column><property name="text"><string>Contact</string></property></column>
-             <column><property name="text"><string>Type</string></property></column>
-             <column><property name="text"><string>Notes</string></property></column>
+             <column><property name="text"><string>Description</string></property></column>
+             <column><property name="text"><string>Price</string></property></column>
+             <column><property name="text"><string>Quantity</string></property></column>
             </widget>
            </item>
+          </layout>
+         </widget>
+
+     <!-- Transactions Page -->
+<widget class="QWidget" name="transactionsPage">
+  <layout class="QVBoxLayout">
+
+    <!-- Toolbar -->
+    <item>
+      <widget class="QWidget">
+        <layout class="QHBoxLayout">
+          <item>
+            <widget class="QPushButton" name="sellProductButton">
+              <property name="text"><string>🛒 Sell Product</string></property>
+            </widget>
+          </item>
+          <item>
+            <widget class="QLineEdit" name="searchProduct">
+              <property name="placeholderText"><string>Search by Product Name or ID...</string></property>
+            </widget>
+          </item>
+          <item>
+            <widget class="QPushButton" name="searchProductButton">
+              <property name="text"><string>Search</string></property>
+            </widget>
+          </item>
+        </layout>
+      </widget>
+    </item>
+
+    <!-- Transactions Table -->
+  <item>
+  <widget class="QTableWidget" name="transactionsTable">
+    <property name="columnCount"><number>8</number></property>
+    <column><property name="text"><string>Date</string></property></column>
+    <column><property name="text"><string>Customer Name</string></property></column>
+    <column><property name="text"><string>Customer Mobile No</string></property></column>
+    <column><property name="text"><string>Product ID</string></property></column>
+    <column><property name="text"><string>Product Name</string></property></column>
+    <column><property name="text"><string>Qty</string></property></column>
+    <column><property name="text"><string>Price</string></property></column>
+    <column><property name="text"><string>Total Price</string></property></column>
+  </widget>
+</item>
+
+    <!-- Checkout Section -->
+    <item>
+      <widget class="QGroupBox">
+        <property name="title"><string>Checkout</string></property>
+        <layout class="QGridLayout">
+          <item row="0" column="0">
+            <widget class="QLabel"><property name="text"><string>Customer Name:</string></property></widget>
+          </item>
+          <item row="0" column="1">
+            <widget class="QLineEdit" name="customerNameInput"/>
+          </item>
+
+          <item row="1" column="0">
+            <widget class="QLabel"><property name="text"><string>Mobile No:</string></property></widget>
+          </item>
+          <item row="1" column="1">
+            <widget class="QLineEdit" name="mobileNoInput"/>
+          </item>
+
+          <item row="2" column="0">
+            <widget class="QLabel"><property name="text"><string>Product Name:</string></property></widget>
+          </item>
+          <item row="2" column="1">
+            <widget class="QLineEdit" name="checkoutProductNameInput"/>
+          </item>
+
+          <item row="3" column="0">
+            <widget class="QLabel"><property name="text"><string>Quantity:</string></property></widget>
+          </item>
+          <item row="3" column="1">
+            <widget class="QLineEdit" name="checkoutQuantityInput"/>
+          </item>
+
+          <item row="4" column="0">
+            <widget class="QLabel"><property name="text"><string>Total Price:</string></property></widget>
+          </item>
+          <item row="4" column="1">
+            <widget class="QLineEdit" name="checkoutTotalPriceInput">
+              <property name="readOnly"><bool>true</bool></property>
+            </widget>
+          </item>
+
+          <item row="5" column="0" colspan="2">
+            <widget class="QPushButton" name="checkoutConfirmButton">
+              <property name="text"><string>✅ Confirm Checkout</string></property>
+              <property name="maximumWidth">
+                <number>150</number> <!-- Set maximum width -->
+              </property>
+              <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                </sizepolicy>
+              </property>
+              <property name="styleSheet">
+                <string notr="true">
+                  QPushButton {
+                    padding: 5px;
+                    font-size: 12px;
+                  }
+                </string>
+              </property>
+            </widget>
+          </item>
+        </layout>
+      </widget>
+    </item>
+
+  </layout>
+</widget>
+
+         <!-- Users Page -->
+         <widget class="QWidget" name="usersPage">
+          <property name="styleSheet"><string notr="true">background-color: #071625ff; border-radius: 10px; margin: 10px; padding: 10px;</string></property>
+          <layout class="QVBoxLayout">
+           <item><widget class="QWidget" name="usersToolbar"><layout class="QHBoxLayout"><item><widget class="QPushButton" name="usersAddButton"><property name="text"><string>Add User</string></property></widget></item><item><widget class="QPushButton" name="usersEditButton"><property name="text"><string>Edit User</string></property></widget></item><item><widget class="QPushButton" name="usersDeleteButton"><property name="text"><string>Delete User</string></property></widget></item><item><spacer name="usersSpacer"/></item></layout></widget></item>
+           <item><widget class="QTableWidget" name="usersTable"><property name="columnCount"><number>4</number></property><column><property name="text"><string>Username</string></property></column><column><property name="text"><string>Role</string></property></column><column><property name="text"><string>Last Login</string></property></column><column><property name="text"><string>Actions</string></property></column></widget></item>
+          </layout>
+         </widget>
+
+         <!-- Reports Page -->
+         <widget class="QWidget" name="reportsPage">
+          <property name="styleSheet"><string notr="true">background-color: #071625ff; border-radius: 10px; margin: 10px; padding: 10px;</string></property>
+          <layout class="QVBoxLayout">
+           <item><widget class="QWidget" name="reportsToolbar"><layout class="QHBoxLayout"><item><widget class="QPushButton" name="exportStockCsv"><property name="text"><string>Export Stock CSV</string></property></widget></item><item><widget class="QPushButton" name="exportTransactionsCsv"><property name="text"><string>Export Transactions CSV</string></property></widget></item><item><spacer name="reportsSpacer"/></item></layout></widget></item>
+           <item><widget class="QWidget" name="reportsContent"><layout class="QVBoxLayout"><item><widget class="QLabel" name="reportsPlaceholder"><property name="text"><string>Choose report options to view or export.</string></property></widget></item></layout></widget></item>
+          </layout>
+         </widget>
+
+         <!-- Suppliers Page -->
+         <widget class="QWidget" name="suppliersPage">
+          <property name="styleSheet"><string notr="true">background-color: #071625ff; border-radius: 10px; margin: 10px; padding: 10px;</string></property>
+          <layout class="QVBoxLayout">
+           <item><widget class="QWidget" name="suppliersToolbar"><layout class="QHBoxLayout"><item><widget class="QPushButton" name="suppliersAddButton"><property name="text"><string>Add Supplier</string></property></widget></item><item><widget class="QPushButton" name="customersAddButton"><property name="text"><string>Add Customer</string></property></widget></item><item><spacer name="suppliersSpacer"/></item></layout></widget></item>
+           <item><widget class="QTableWidget" name="suppliersTable"><property name="columnCount"><number>5</number></property><column><property name="text"><string>ID</string></property></column><column><property name="text"><string>Name</string></property></column><column><property name="text"><string>Contact</string></property></column><column><property name="text"><string>Type</string></property></column><column><property name="text"><string>Notes</string></property></column></widget></item>
           </layout>
          </widget>
 
         </widget>
        </item>
-
       </layout>
      </widget>
     </item>

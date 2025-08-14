@@ -23,6 +23,5 @@ void DashboardWindow::onProductsEdit()
     }
 
     int row = selectedRanges.first().topRow();
-    // Focus on first editable column (e.g. Name)
     ui->productsTable->editItem(ui->productsTable->item(row, 1));
 }

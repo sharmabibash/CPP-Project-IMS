@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QJsonArray>
+#include <QDateTime>
 
 namespace Ui {
 class DashboardWindow;
@@ -39,6 +40,10 @@ private slots:
     void onProductsEdit();
     void onProductsDelete();
 
+
+    // void onGenerateInvoiceClicked();
+    // void onExportTodaySalesClicked();
+    // void showTodaySales();
     // Slot for updating product after editing in table
     void onProductsUpdate(int row, int column);
 
@@ -47,6 +52,12 @@ private slots:
 
     void onExportStockCsv();
     void onExportTransactionsCsv();
+
+    // Transaction related slots
+    void onSellProductClicked();
+    void onSearchProductClicked();
+    void onConfirmCheckoutClicked();
+    // void showTodaySales();
 
     void loadProductsToTable();
     void loadTransactionsToTable();
@@ -66,6 +77,13 @@ private:
     // Helper functions for JSON file handling
     QJsonArray readProductsFromFile();
     void writeProductsToFile(const QJsonArray &products);
+    
+    // Transaction helper functions
+    QString getTransactionsFilePath() const;
+    QJsonArray readTransactionsFromFile() const;
+    void saveTransactionsToFile(const QJsonArray &transactions);
+    void processCheckout(const QString &customerName, const QString &mobileNo, 
+                         const QString &productName, int quantity, double totalPrice);
 };
 
 #endif // DASHBOARDWINDOW_H
