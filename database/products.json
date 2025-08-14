@@ -1,18 +1,18 @@
 [
     {
-        "category": "Books",
-        "description": "hgfghj",
+        "category": "Electronics",
+        "description": "Watch",
         "id": 1,
-        "name": "hghjgjb",
-        "price": 555,
-        "quantity": 70
+        "name": "Watch",
+        "price": 5000,
+        "quantity": 2
     },
     {
-        "category": "Apparel",
-        "description": "bb",
+        "category": "Electronics",
+        "description": "laptop",
         "id": 2,
-        "name": "abc",
-        "price": 4000,
-        "quantity": 40
+        "name": "Laptop",
+        "price": 145000,
+        "quantity": 3
     }
 ]

@@ -95,8 +95,8 @@ void DashboardWindow::onGenerateInvoiceClicked()
         <div class="company-info">
             <h2 style="color: #2c3e50; margin-bottom: 5px;">)" + companyName + R"(</h2>
             <p>)" + userEmail + R"(<br>
-            )" + mobile + R"(<br>
-            Reg No: )" + regNo + R"(</p>
+            Registration Number : )" + mobile + R"(<br>
+            Company Mobile Number : )" + regNo + R"(</p>
         </div>
         <div style="text-align: right;">
             <h2 style="color: #2c3e50; margin-bottom: 5px;">INVOICE</h2>

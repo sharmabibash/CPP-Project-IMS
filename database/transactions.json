@@ -1,22 +1,22 @@
 [
     {
-        "customerName": "Bibash",
-        "date": "2025-08-14T16:39:38",
+        "customerName": "Bibash Sharma",
+        "date": "2025-08-14T22:59:04",
         "mobileNo": "9817712881",
-        "price": 555,
+        "price": 5000,
         "productId": 1,
-        "productName": "apple",
-        "quantity": 2,
-        "totalPrice": 1110
+        "productName": "Watch",
+        "quantity": 3,
+        "totalPrice": 15000
     },
     {
-        "customerName": "Bibash",
-        "date": "2025-08-14T16:39:57",
+        "customerName": "Bibash Sharma",
+        "date": "2025-08-14T22:59:26",
         "mobileNo": "9817712881",
-        "price": 111,
+        "price": 145000,
         "productId": 2,
-        "productName": "vv",
+        "productName": "Laptop",
         "quantity": 1,
-        "totalPrice": 111
+        "totalPrice": 145000
     }
 ]
