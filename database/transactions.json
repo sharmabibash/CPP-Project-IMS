@@ -1,22 +1,22 @@
 [
     {
         "customerName": "Bibash Sharma",
-        "date": "2025-08-14T22:59:04",
+        "date": "2025-08-15T12:12:34",
         "mobileNo": "9817712881",
-        "price": 5000,
+        "price": 500,
         "productId": 1,
         "productName": "Watch",
         "quantity": 3,
-        "totalPrice": 15000
+        "totalPrice": 1500
     },
     {
         "customerName": "Bibash Sharma",
-        "date": "2025-08-14T22:59:26",
+        "date": "2025-08-15T12:12:53",
         "mobileNo": "9817712881",
-        "price": 145000,
+        "price": 150000,
         "productId": 2,
         "productName": "Laptop",
         "quantity": 1,
-        "totalPrice": 145000
+        "totalPrice": 150000
     }
 ]

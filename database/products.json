@@ -1,18 +1,10 @@
 [
     {
         "category": "Electronics",
-        "description": "Watch",
+        "description": "watch",
         "id": 1,
-        "name": "Watch",
-        "price": 5000,
-        "quantity": 2
-    },
-    {
-        "category": "Electronics",
-        "description": "laptop",
-        "id": 2,
-        "name": "Laptop",
-        "price": 145000,
-        "quantity": 3
+        "name": "watch",
+        "price": 400,
+        "quantity": 4
     }
 ]
