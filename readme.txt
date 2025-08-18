@@ -31,6 +31,7 @@ QUICK START (Qt Creator — easiest)
    - “Desktop Qt 6.x MinGW 64-bit”
 3) Configure Project (let CMake run). Set build directory to ./build if prompted.
 5) BUILD and Run:
+   - Extract the Zip File
    - Open VS Code
    - Press CTRL+SHIFT+P ---> CMake:Build
    - Press CTRL+SHIFT+P ---> CMake:Run without debugging
